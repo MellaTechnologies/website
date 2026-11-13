@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-plum: #440450;
+  --color-plum-deep: #3a0345;
+  --color-plum-card: #52105e;
+  --color-orchid: #f2a0f5;
+  --color-orchid-dark: #e47fe9;
+  --color-ink: #2c0234;
+  --color-cream: #fbeefc;
+  --color-mauve: #d6b4db;
+  --color-line: rgb(242 160 245 / 0.18);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-marcellus), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background: var(--color-plum);
+  color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-orchid);
+  color: var(--color-ink);
+}
