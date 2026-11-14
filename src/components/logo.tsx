@@ -15,7 +15,7 @@ export function LogoMark({ className = "h-9 w-[30px]" }: { className?: string })
 
 export function Logo({ className = "", markClassName, wordClassName = "text-[28px]" }: Props) {
   return (
-    <span className={`inline-flex items-center gap-2.5 text-orchid ${className}`}>
+    <span className={`inline-flex items-center gap-2.5 text-accent ${className}`}>
       <LogoMark className={markClassName} />
       <span className={`font-display leading-none tracking-wide ${wordClassName}`}>Mella</span>
     </span>

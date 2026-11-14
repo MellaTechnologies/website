@@ -25,10 +25,101 @@ export const site = {
   phoneDisplay: "+251 900 118 533",
   country: "ET",
   locale: "en_US",
-  colors: { plum: "#440450", orchid: "#F2A0F5" },
+  colors: { paper: "#ffffff", ink: "#2c1c12", accent: "#b5461c" },
 } as const;
 
 export const appointmentHref = `mailto:${site.email}?subject=${encodeURIComponent("Appointment request")}`;
+
+/** Credibility figures shown in the stat strips. */
+export const stats = [
+  { value: "100%", label: "Customer-first, every project" },
+  { value: "1 → ∞", label: "Start with one process, grow at your pace" },
+  { value: "Free", label: "On-site consultation to begin" },
+  { value: "Local", label: "Team you can call, email or meet" },
+] as const;
+
+/** Why businesses choose Mella — reused on Home and About. */
+export const values = [
+  { title: "Customer first", body: "We start by listening to how you and your customers work today, and design around that." },
+  { title: "Built around you", body: "Digitize one process first or everything at once. You choose, and we grow with you." },
+  { title: "Affordable", body: "Pricing set by the size of your business, so small businesses pay small-business prices." },
+  { title: "Free consultation", body: "We visit, look at your current paperwork and show you what going digital would look like." },
+  { title: "Full training", body: "We train your staff until they are confident, so nobody goes back to the notebook." },
+  { title: "Ongoing support", body: "After launch we check in regularly and fix issues quickly. A local team you can call or meet." },
+] as const;
+
+/** How an engagement runs, start to finish — the numbered process. */
+export const processSteps = [
+  { step: "01", title: "Consult", body: "A free visit to see your paperwork and understand how your business really runs." },
+  { step: "02", title: "Design", body: "We map the manual steps and plan a simple system around the one that costs you most time." },
+  { step: "03", title: "Build", body: "We build and test the tool, shaped to your workflow — not a rigid off-the-shelf product." },
+  { step: "04", title: "Train", body: "Hands-on training for your team until everyone is confident using it day to day." },
+  { step: "05", title: "Support", body: "We check in regularly, fix issues fast, and add the next process when you're ready." },
+] as const;
+
+/**
+ * Portfolio case studies — PLACEHOLDER content.
+ * Replace with real client work: swap names, details, metrics and (optional) links.
+ */
+export const caseStudies = [
+  {
+    slug: "retail-inventory",
+    client: "Addis Mart",
+    industry: "Retail & wholesale",
+    challenge: "Stock counted by hand in notebooks, with frequent stock-outs and no view of fast-moving items.",
+    solution: "A live inventory and point-of-sale system with low-stock alerts and daily sales totals.",
+    result: "Stock-outs down, counting time cut from hours to minutes.",
+    metric: "−90% time on stock counts",
+    image: "/work-1.png",
+  },
+  {
+    slug: "clinic-bookings",
+    client: "Bana Clinic",
+    industry: "Healthcare",
+    challenge: "Appointments kept in a paper book, double-bookings and missed follow-ups.",
+    solution: "Online bookings with reminders and a shared schedule for the front desk.",
+    result: "Fewer no-shows and a clear view of each day at a glance.",
+    metric: "−40% no-shows",
+    image: "/work-2.png",
+  },
+  {
+    slug: "logistics-reports",
+    client: "Sheger Logistics",
+    industry: "Transport & logistics",
+    challenge: "Daily figures added up by hand across several spreadsheets passed between staff.",
+    solution: "One shared system with automatic reports and dashboards for management.",
+    result: "Reports that once took a morning are now ready instantly.",
+    metric: "Reports in seconds",
+    image: "/work-3.png",
+  },
+  {
+    slug: "restaurant-pos",
+    client: "Enat Kitchen",
+    industry: "Hospitality",
+    challenge: "Orders and receipts on paper pads, hard to reconcile at the end of the night.",
+    solution: "A point-of-sale app with receipts, daily totals and simple menu management.",
+    result: "Faster service and books that balance every evening.",
+    metric: "Nightly totals balanced",
+  },
+  {
+    slug: "school-admin",
+    client: "Light Academy",
+    industry: "Education",
+    challenge: "Attendance, fees and records spread across notebooks and Excel files.",
+    solution: "A custom admin app for attendance, fee tracking and student records in one place.",
+    result: "Staff spend less time on paperwork and more with students.",
+    metric: "One place for records",
+  },
+  {
+    slug: "workshop-website",
+    client: "Dire Motors",
+    industry: "Services",
+    challenge: "No online presence, so new customers struggled to find or contact them.",
+    solution: "A fast, mobile-friendly website with services, location and a contact button.",
+    result: "New enquiries now arrive straight from online search.",
+    metric: "Found online",
+  },
+] as const;
 
 /** Manual processes we turn into digital systems. */
 export const solutions = [
