@@ -140,65 +140,59 @@ html.lenis body {
   transition: color 0.3s ease;
 }
 
-/* Hover states — pointer devices only. (pointer: fine), not (hover: hover), because
-   this browser drops the hover feature; a coarse/touch pointer never matches, so a tap
-   can't leave a card stuck in its hover state. */
-@media (pointer: fine) {
-  .howcard:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 40px rgb(44 28 18 / 0.14);
-  }
-  .howcard:hover .howcard-reveal {
-    grid-template-rows: 1fr;
-  }
-  .howcard:hover .howcard-img {
-    transform: scale(1);
-  }
-
-  .svc-card:hover {
-    background: var(--color-accent);
-    color: var(--color-onaccent);
-    border-color: var(--color-accent);
-    transform: translateY(-4px);
-    box-shadow: 0 24px 50px -22px rgb(181 70 28 / 0.55);
-  }
-  .svc-card:hover .svc-num {
-    color: var(--color-onaccent);
-    opacity: 0.72;
-  }
-  .svc-card:hover .svc-desc {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .port-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 26px 54px -24px rgb(44 28 18 / 0.5);
-  }
-  .port-card:hover .port-img {
-    transform: scale(1.04);
-  }
-  .port-card:hover .port-reveal {
-    grid-template-rows: 1fr;
-  }
-  .port-card:hover .port-reveal-inner {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .feat-row:hover .feat-desc {
-    grid-template-rows: 1fr;
-  }
-  .feat-row:hover .feat-desc > p {
-    opacity: 1;
-  }
-  .feat-row:hover .feat-name {
-    color: var(--color-accent);
-  }
+/* Card hover reveals — plain :hover. This browser mishandles the @media (hover)/(pointer)
+   queries, which silently disabled these; on touch a tap reveals and holds, acceptable here. */
+.howcard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgb(44 28 18 / 0.14);
+}
+.howcard:hover .howcard-reveal {
+  grid-template-rows: 1fr;
+}
+.howcard:hover .howcard-img {
+  transform: scale(1);
+}
+.svc-card:hover {
+  background: var(--color-accent);
+  color: var(--color-onaccent);
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px -22px rgb(181 70 28 / 0.55);
+}
+.svc-card:hover .svc-num {
+  color: var(--color-onaccent);
+  opacity: 0.72;
+}
+.svc-card:hover .svc-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+.port-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 54px -24px rgb(44 28 18 / 0.5);
+}
+.port-card:hover .port-img {
+  transform: scale(1.04);
+}
+.port-card:hover .port-reveal {
+  grid-template-rows: 1fr;
+}
+.port-card:hover .port-reveal-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+.feat-row:hover .feat-desc {
+  grid-template-rows: 1fr;
+}
+.feat-row:hover .feat-desc > p {
+  opacity: 1;
+}
+.feat-row:hover .feat-name {
+  color: var(--color-accent);
 }
 
-/* Shared interactive primitives — hover gated to pointer devices (Tailwind hover:
-   variants don't fire in the target browser), press feedback ungated. */
+/* Shared interactive primitives — plain :hover (this browser mishandles the hover/pointer
+   media queries); press feedback below. */
 .btn-primary,
 .btn-outline {
   transition: background-color 160ms ease, transform 160ms ease;
@@ -209,25 +203,23 @@ html.lenis body {
 .hover-accent {
   transition: color 160ms ease;
 }
-@media (pointer: fine) {
-  .btn-primary:hover {
-    background-color: var(--color-accent-strong);
-    transform: translateY(-1px);
-  }
-  .btn-outline:hover {
-    background-color: rgb(181 70 28 / 0.08);
-    transform: translateY(-1px);
-  }
-  .card-interactive:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 34px rgb(44 28 18 / 0.09);
-  }
-  .hover-accent:hover {
-    color: var(--color-accent);
-  }
-  .hover-underline:hover {
-    text-decoration-line: underline;
-  }
+.btn-primary:hover {
+  background-color: var(--color-accent-strong);
+  transform: translateY(-1px);
+}
+.btn-outline:hover {
+  background-color: rgb(181 70 28 / 0.08);
+  transform: translateY(-1px);
+}
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgb(44 28 18 / 0.09);
+}
+.hover-accent:hover {
+  color: var(--color-accent);
+}
+.hover-underline:hover {
+  text-decoration-line: underline;
 }
 /* Press feedback — after the @media so it wins over :hover while pressing. */
 .btn-primary:active,
