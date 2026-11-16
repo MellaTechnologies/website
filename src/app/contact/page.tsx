@@ -26,9 +26,13 @@ export default function Contact() {
             <Phone className="mx-auto mb-4 size-7 text-accent" strokeWidth={1.6} aria-hidden />
             <h2 className="text-lg font-semibold">Call us</h2>
             <p className="mt-1 mb-5 text-muted">We&apos;re happy to answer questions.</p>
-            <a href={`tel:${site.phone}`} className={btnOutline}>
-              {site.phoneDisplay}
-            </a>
+            <div className="flex flex-col items-center gap-2">
+              {site.phones.map((p) => (
+                <a key={p.tel} href={`tel:${p.tel}`} className={btnOutline}>
+                  {p.display}
+                </a>
+              ))}
+            </div>
           </div>
           <div className={`${card} text-center`}>
             <Mail className="mx-auto mb-4 size-7 text-accent" strokeWidth={1.6} aria-hidden />

@@ -42,9 +42,11 @@ export function Footer() {
         <div>
           <h2 className="mb-3 font-semibold text-ink">Get in touch</h2>
           <address className="flex flex-col gap-2 not-italic">
-            <a href={`tel:${site.phone}`} className="inline-flex items-center gap-2 hover:text-accent">
-              <Phone className="size-4" aria-hidden /> {site.phoneDisplay}
-            </a>
+            {site.phones.map((p) => (
+              <a key={p.tel} href={`tel:${p.tel}`} className="inline-flex items-center gap-2 hover:text-accent">
+                <Phone className="size-4" aria-hidden /> {p.display}
+              </a>
+            ))}
             <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 hover:text-accent">
               <Mail className="size-4" aria-hidden /> {site.email}
             </a>
