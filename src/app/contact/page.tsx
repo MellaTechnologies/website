@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CalendarCheck, Mail, Phone } from "lucide-react";
-import { appointmentHref, processSteps, site } from "@/lib/site";
-import { PageHero, btnOutline, btnPrimary, card, container, Eyebrow } from "@/components/ui";
+import { appointmentHref, site } from "@/lib/site";
+import { PageHero, btnOutline, btnPrimary, card, container } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -50,23 +50,6 @@ export default function Contact() {
               <CalendarCheck className="size-4" aria-hidden /> Make an appointment
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* What to expect */}
-      <section className="border-y border-line bg-sand py-16 sm:py-20">
-        <div className={container}>
-          <Eyebrow>What to expect</Eyebrow>
-          <h2 className="font-display text-[clamp(26px,3.5vw,38px)] leading-tight">After you reach out</h2>
-          <ol className="mt-10 grid gap-5 md:grid-cols-5 sm:grid-cols-2" data-reveal>
-            {processSteps.map((p) => (
-              <li key={p.step} className={card}>
-                <span className="font-display text-3xl text-accent/40">{p.step}</span>
-                <h3 className="mt-3 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-muted">{p.body}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
     </main>
