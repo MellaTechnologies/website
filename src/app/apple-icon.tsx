@@ -1,6 +1,8 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
