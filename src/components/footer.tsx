@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 import { Logo } from "./logo";
 import { container } from "./ui";
@@ -58,11 +59,12 @@ export function Footer() {
         <p>Customer first · Manual to digital</p>
       </div>
 
-      {/* Oversized wordmark — a quiet closing moment. */}
-      <div aria-hidden className="overflow-hidden">
-        <p className="-mb-[0.18em] select-none text-center font-display leading-none text-accent/12 text-[clamp(90px,24vw,340px)]">
-          Mella
-        </p>
+      {/* Sunset illustration — a quiet closing moment, fading up into the cream footer. */}
+      <div
+        aria-hidden
+        className="relative mt-12 h-[clamp(160px,22vw,300px)] w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_22%)]"
+      >
+        <Image src="/footer-sunset.png" alt="" fill sizes="100vw" className="object-cover object-[center_72%]" />
       </div>
     </footer>
   );
