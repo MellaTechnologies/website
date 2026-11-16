@@ -11,7 +11,7 @@ import { appointmentHref } from "@/lib/site";
 const links = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
+  // { href: "/portfolio", label: "Portfolio" }, // temporarily hidden — no projects yet
   { href: "/contact", label: "Contact" },
 ];
 

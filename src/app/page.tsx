@@ -2,7 +2,7 @@ import Image from "next/image";
 import { CalendarCheck } from "lucide-react";
 import { Orb } from "@/components/orb";
 import { Preloader } from "@/components/preloader";
-import { StackedWork } from "@/components/stacked-work";
+// import { StackedWork } from "@/components/stacked-work"; // temporarily hidden — no projects yet
 import { WhyMella } from "@/components/why-mella";
 import { MoveButton } from "@/components/move-button";
 import { CTASection, SkyArt, StatStrip, container, Eyebrow, heroSky } from "@/components/ui";
@@ -96,8 +96,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Selected work — stacked cards */}
-      <StackedWork />
+      {/* Selected work — temporarily hidden until we have real projects to show.
+          Restore by uncommenting this and the StackedWork import above. */}
+      {/* <StackedWork /> */}
 
       {/* Why Mella — full-screen stacking card with a cursor spotlight that reverses colours */}
       <WhyMella />
