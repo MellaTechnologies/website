@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { caseStudies } from "@/lib/site";
 import { Eyebrow, container } from "./ui";
+import { MoveButton } from "./move-button";
 
 const featured = caseStudies.filter((c) => "image" in c).slice(0, 3) as (typeof caseStudies[number] & {
   image: string;
@@ -52,7 +53,7 @@ export function StackedWork() {
           <Eyebrow>Selected work</Eyebrow>
           <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-tight">Results you can measure</h2>
         </div>
-        <Link href="/portfolio" className="font-semibold text-accent underline-offset-4 hover:underline">
+        <Link href="/portfolio" className="font-semibold text-accent underline-offset-4 hover-underline">
           View portfolio <ArrowUpRight className="inline size-4" aria-hidden />
         </Link>
       </div>
@@ -92,12 +93,9 @@ export function StackedWork() {
                       <p className="font-semibold">{c.industry}</p>
                     </div>
                   </div>
-                  <Link
-                    href="/portfolio"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-onaccent/30 px-4 py-2 text-sm font-semibold text-onaccent transition hover:bg-onaccent/10"
-                  >
-                    View project <ArrowUpRight className="size-4" aria-hidden />
-                  </Link>
+                  <MoveButton href="/portfolio" variant="overlay" size="sm" className="text-sm">
+                    View project
+                  </MoveButton>
                 </div>
 
                 <div>

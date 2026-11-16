@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { caseStudies } from "@/lib/site";
+import { MoveButton } from "./move-button";
 
 /** Portfolio as image cards: name + industry at rest, description + CTA on hover. */
 export function PortfolioGrid() {
@@ -61,12 +60,9 @@ export function PortfolioGrid() {
               <div className="port-reveal">
                 <div className="port-reveal-inner">
                   <p className="mt-2 max-w-md text-[14px] leading-relaxed text-onaccent/85">{c.solution}</p>
-                  <Link
-                    href={`/portfolio/${c.slug}`}
-                    className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-onaccent/15 px-4 py-2 text-sm font-semibold text-onaccent ring-1 ring-onaccent/30 backdrop-blur transition active:scale-95"
-                  >
-                    View project <ArrowUpRight className="size-4" aria-hidden />
-                  </Link>
+                  <MoveButton href={`/portfolio/${c.slug}`} variant="overlay" size="sm" className="mt-3 text-sm">
+                    View project
+                  </MoveButton>
                 </div>
               </div>
             </div>

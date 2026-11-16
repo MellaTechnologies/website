@@ -1,15 +1,15 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CalendarCheck } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
+import { MoveButton } from "@/components/move-button";
 import { appointmentHref, stats } from "@/lib/site";
 
 export const container = "mx-auto max-w-6xl px-5";
 export const card =
-  "rounded-2xl border border-line bg-surface p-6 shadow-[0_1px_2px_rgb(44_28_18/0.04)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgb(44_28_18/0.09)]";
+  "card-interactive rounded-2xl border border-line bg-surface p-6 shadow-[0_1px_2px_rgb(44_28_18/0.04)]";
 export const btnPrimary =
-  "inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-onaccent transition hover:-translate-y-px hover:bg-accent-strong active:translate-y-0 active:scale-[0.98]";
+  "btn-primary inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-onaccent";
 export const btnOutline =
-  "inline-flex items-center gap-2 rounded-full border border-accent/40 px-6 py-3 font-semibold text-accent transition hover:-translate-y-px hover:bg-accent/8 active:translate-y-0 active:scale-[0.98]";
+  "btn-outline inline-flex items-center gap-2 rounded-full border border-accent/40 px-6 py-3 font-semibold text-accent";
 
 /**
  * Warm sunrise gradient ground. The absolutely-positioned [data-sky-art] layer is
@@ -132,12 +132,10 @@ export function CTASection({
         <h2 className="font-display text-[clamp(30px,4.4vw,46px)] leading-tight">{title}</h2>
         <p className="mt-4 text-lg text-muted">{body}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a href={appointmentHref} className={btnPrimary}>
-            <CalendarCheck className="size-4" aria-hidden /> Make an appointment
-          </a>
-          <Link href="/contact" className={btnOutline}>
-            Contact us <ArrowRight className="size-4" aria-hidden />
-          </Link>
+          <MoveButton href={appointmentHref} variant="primary" showArrow={false}>
+            <CalendarCheck className="size-[1.1em]" aria-hidden /> Make an appointment
+          </MoveButton>
+          <MoveButton href="/contact">Contact us</MoveButton>
         </div>
       </div>
     </section>

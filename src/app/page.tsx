@@ -1,17 +1,17 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CalendarCheck } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import { Orb } from "@/components/orb";
 import { Preloader } from "@/components/preloader";
 import { StackedWork } from "@/components/stacked-work";
 import { WhyMella } from "@/components/why-mella";
-import { CTASection, SkyArt, StatStrip, btnOutline, btnPrimary, container, Eyebrow, heroSky } from "@/components/ui";
+import { MoveButton } from "@/components/move-button";
+import { CTASection, SkyArt, StatStrip, container, Eyebrow, heroSky } from "@/components/ui";
 import { appointmentHref } from "@/lib/site";
 
 /** Hero slot holding the glass object; the preloader animates its orb into this slot on load. */
 function HeroObject() {
   return (
-    <div id="hero-orb-slot" aria-hidden className="relative mx-auto hidden aspect-square w-full max-w-sm lg:block">
+    <div id="hero-orb-slot" aria-hidden className="relative mx-auto aspect-square w-full max-w-[240px] sm:max-w-xs lg:max-w-sm">
       <Orb />
     </div>
   );
@@ -48,12 +48,10 @@ export default function Home() {
               your customers.
             </p>
             <div style={{ "--d": "0.27s" } as React.CSSProperties} className="mt-9 flex flex-wrap gap-3">
-              <a href={appointmentHref} className={btnPrimary}>
-                <CalendarCheck className="size-4" aria-hidden /> Make an appointment
-              </a>
-              <Link href="/services" className={btnOutline}>
-                See what we digitize <ArrowRight className="size-4" aria-hidden />
-              </Link>
+              <MoveButton href={appointmentHref} variant="primary" showArrow={false}>
+                <CalendarCheck className="size-[1.1em]" aria-hidden /> Make an appointment
+              </MoveButton>
+              <MoveButton href="/services">See what we digitize</MoveButton>
             </div>
           </div>
 

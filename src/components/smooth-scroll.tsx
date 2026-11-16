@@ -21,6 +21,7 @@ export function SmoothScroll() {
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    (window as unknown as { lenis?: Lenis }).lenis = lenis; // let the header scroll to top
     lenis.on("scroll", ScrollTrigger.update);
     const ticker = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(ticker);
@@ -36,7 +37,7 @@ export function SmoothScroll() {
           start: "top 88%",
           once: true,
           onEnter: () =>
-            gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }),
+            gsap.to(el, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }),
         });
       });
 
@@ -55,6 +56,7 @@ export function SmoothScroll() {
     return () => {
       ctx.revert();
       gsap.ticker.remove(ticker);
+      (window as unknown as { lenis?: Lenis }).lenis = undefined;
       lenis.destroy();
     };
   }, [pathname]);
