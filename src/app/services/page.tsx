@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { appointmentHref } from "@/lib/site";
 import { SolutionsGrid } from "@/components/solutions-grid";
-import { WorkCarousel } from "@/components/work-carousel";
+// import { WorkCarousel } from "@/components/work-carousel"; // temporarily hidden — no projects yet
 import { CTASection, PageHero, container, Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -37,8 +37,9 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Selected work */}
-      <WorkCarousel />
+      {/* Selected work — temporarily hidden until we have real projects to show.
+          Restore by uncommenting this and the WorkCarousel import above. */}
+      {/* <WorkCarousel /> */}
 
       <CTASection />
     </main>

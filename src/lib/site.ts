@@ -20,7 +20,7 @@ export const site = {
     "website design Ethiopia",
     "Mella Technologies",
   ],
-  email: "yohana@mellatechnologies.com",
+  email: "info@mellatechnologies.com",
   phone: "+251900118533",
   phoneDisplay: "+251 900 118 533",
   phones: [
