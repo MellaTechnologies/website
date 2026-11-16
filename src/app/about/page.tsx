@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { CTASection, PageHero, StatStrip, card, container, Eyebrow } from "@/components/ui";
-import { processSteps, site, values } from "@/lib/site";
+import { CTASection, PageHero, container } from "@/components/ui";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -20,60 +20,44 @@ export default function About() {
 
       {/* Story */}
       <section className="py-16 sm:py-20">
-        <div className={`${container} grid gap-10 md:grid-cols-[1.4fr_1fr]`} data-reveal>
-          <div>
-            <h2 className="font-display text-[clamp(26px,3.5vw,38px)] leading-tight">Our mission</h2>
-            <p className="mt-4 text-[17px] leading-relaxed text-muted">
-              {site.name} replaces the manual steps that slow businesses down — the stock book, the receipt pad, the
-              Excel file passed around — with tools that are faster, safer and easy for your team to use.
-            </p>
-            <p className="mt-4 text-[17px] leading-relaxed text-muted">
-              We sit with you first. We learn how your business really runs, then digitize one process at a time or
-              everything at once — whatever fits you. And we stay after launch, because a tool nobody uses helps no one.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-accent/25 bg-surface p-8 text-center shadow-[0_14px_34px_rgb(44_28_18/0.08)]">
-            <p className="font-display text-4xl text-accent">Manual → Digital</p>
-            <p className="mt-3 text-xl font-semibold">One process at a time</p>
-            <p className="mt-1 text-muted">Start with what costs you the most time</p>
-          </div>
+        <div className={`${container} max-w-3xl`} data-reveal>
+          <h2 className="font-display text-[clamp(26px,3.5vw,38px)] leading-tight">Our mission</h2>
+          <p className="mt-4 text-[17px] leading-relaxed text-muted">
+            {site.name} replaces the manual steps that slow businesses down — the stock book, the receipt pad, the
+            Excel file passed around — with tools that are faster, safer and easy for your team to use.
+          </p>
+          <p className="mt-4 text-[17px] leading-relaxed text-muted">
+            We sit with you first. We learn how your business really runs, then digitize one process at a time or
+            everything at once — whatever fits you. And we stay after launch, because a tool nobody uses helps no one.
+          </p>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Who we are */}
       <section className="border-y border-line bg-sand py-16 sm:py-20">
-        <div className={container}>
-          <Eyebrow>What we stand for</Eyebrow>
-          <h2 className="font-display text-[clamp(26px,3.5vw,38px)] leading-tight">Why businesses choose us</h2>
-          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
-            {values.map((v) => (
-              <li key={v.title} className={card}>
-                <h3 className="mb-2 text-lg font-semibold">{v.title}</h3>
-                <p className="text-[15px] leading-relaxed text-muted">{v.body}</p>
-              </li>
-            ))}
-          </ul>
+        <div className={`${container} grid gap-10 md:grid-cols-[1fr_2fr]`} data-reveal>
+          <h2 className="font-display text-[clamp(26px,3.5vw,38px)] leading-tight">Who we are</h2>
+          <div className="grid gap-x-10 gap-y-6 text-[17px] leading-relaxed text-muted sm:grid-cols-2">
+            <p>
+              {site.name} was founded by three university graduates — Yohana, Rediet and Haymanot — around one
+              belief: that the everyday work businesses still do by hand can be done better digitally.
+            </p>
+            <p>
+              We are a team of developers, designers and marketers. Before {site.name}, we worked as freelancers
+              on a wide range of projects, learning how real businesses run and what actually helps them.
+            </p>
+            <p>
+              That experience shapes how we work today. We listen first, build around the way your team already
+              works, and keep things simple enough that people actually use them.
+            </p>
+            <p>
+              And we keep looking ahead — at new tools and better ways of working — so the systems we build stay
+              useful long after launch.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-16 sm:py-20">
-        <div className={container}>
-          <Eyebrow>How a project runs</Eyebrow>
-          <h2 className="font-display text-[clamp(26px,3.5vw,38px)] leading-tight">From first visit to ongoing support</h2>
-          <ol className="mt-10 grid gap-5 md:grid-cols-5 sm:grid-cols-2" data-reveal>
-            {processSteps.map((p) => (
-              <li key={p.step} className={card}>
-                <span className="font-display text-3xl text-accent/40">{p.step}</span>
-                <h3 className="mt-3 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-muted">{p.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <StatStrip />
       <CTASection title="Let's talk about your business" />
     </main>
   );
