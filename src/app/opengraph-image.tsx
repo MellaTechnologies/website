@@ -6,7 +6,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpengraphImage() {
-  const c = site.colors.orchid;
+  const c = site.colors.accent;
   return new ImageResponse(
     (
       <div
@@ -17,8 +17,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: `radial-gradient(circle at 85% 15%, #6a1677 0%, ${site.colors.plum} 55%)`,
-          color: "#fbeefc",
+          background: `radial-gradient(circle at 80% 8%, #ffcf9e 0%, ${site.colors.paper} 60%)`,
+          color: site.colors.ink,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20, color: c }}>
@@ -31,7 +31,7 @@ export default function OpengraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 76, lineHeight: 1.1, maxWidth: 950 }}>From manual work to digital, built around your customers</div>
-          <div style={{ marginTop: 28, fontSize: 30, color: "#d6b4db" }}>
+          <div style={{ marginTop: 28, fontSize: 30, color: site.colors.accent }}>
             Stock · Sales · Customers · Staff · Reports · Websites
           </div>
         </div>

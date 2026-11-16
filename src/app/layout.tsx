@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Marcellus } from "next/font/google";
+import { Inter, Caudex } from "next/font/google";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { site, solutions } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const marcellus = Marcellus({ variable: "--font-marcellus", weight: "400", subsets: ["latin"], display: "swap" });
+const caudex = Caudex({ variable: "--font-caudex", weight: ["400", "700"], subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -39,8 +42,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: site.colors.plum,
-  colorScheme: "dark",
+  themeColor: site.colors.paper,
+  colorScheme: "light",
 };
 
 const jsonLd = {
@@ -86,9 +89,12 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${marcellus.variable}`}>
+    <html lang="en" className={`${inter.variable} ${caudex.variable}`}>
       <body className="font-sans leading-relaxed">
+        <SmoothScroll />
+        <Header />
         {children}
+        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
