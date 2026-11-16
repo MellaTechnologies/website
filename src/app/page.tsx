@@ -4,8 +4,9 @@ import { ArrowRight, CalendarCheck } from "lucide-react";
 import { Orb } from "@/components/orb";
 import { Preloader } from "@/components/preloader";
 import { StackedWork } from "@/components/stacked-work";
-import { CTASection, SkyArt, StatStrip, btnOutline, btnPrimary, card, container, Eyebrow, heroSky } from "@/components/ui";
-import { appointmentHref, values } from "@/lib/site";
+import { WhyMella } from "@/components/why-mella";
+import { CTASection, SkyArt, StatStrip, btnOutline, btnPrimary, container, Eyebrow, heroSky } from "@/components/ui";
+import { appointmentHref } from "@/lib/site";
 
 /** Hero slot holding the glass object; the preloader animates its orb into this slot on load. */
 function HeroObject() {
@@ -100,29 +101,8 @@ export default function Home() {
       {/* Selected work — stacked cards */}
       <StackedWork />
 
-      {/* Why Mella teaser */}
-      <section aria-labelledby="why-teaser" className="py-20 sm:py-24">
-        <div className={container}>
-          <Eyebrow>Why Mella</Eyebrow>
-          <h2 id="why-teaser" className="max-w-2xl font-display text-[clamp(30px,4vw,44px)] leading-tight">
-            A partner that stays after launch
-          </h2>
-          <ul className="mt-10 grid gap-5 sm:grid-cols-3" data-reveal>
-            {values.slice(0, 3).map((v) => (
-              <li key={v.title} className={card}>
-                <h3 className="mb-2 text-lg font-semibold">{v.title}</h3>
-                <p className="text-[15px] leading-relaxed text-muted">{v.body}</p>
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/about"
-            className="mt-8 inline-block font-semibold text-accent underline-offset-4 hover:underline"
-          >
-            More about how we work <ArrowRight className="inline size-4" aria-hidden />
-          </Link>
-        </div>
-      </section>
+      {/* Why Mella — full-screen stacking card with a cursor spotlight that reverses colours */}
+      <WhyMella />
 
       <CTASection />
     </main>
