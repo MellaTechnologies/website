@@ -30,7 +30,7 @@ export default function Services() {
           <SolutionsGrid />
           <p className="mt-10 text-center text-muted">
             Not on the list? If it is done by hand today, we can digitize it.{" "}
-            <a href={appointmentHref} className="font-semibold text-accent underline-offset-4 hover:underline">
+            <a href={appointmentHref} className="font-semibold text-accent underline-offset-4 hover-underline">
               Tell us about it
             </a>
           </p>

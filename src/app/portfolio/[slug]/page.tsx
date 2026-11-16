@@ -81,7 +81,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           <div style={{ "--d": "0s" } as React.CSSProperties}>
             <Link
               href="/portfolio"
-              className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent underline-offset-4 hover:underline"
+              className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent underline-offset-4 hover-underline"
             >
               <ArrowLeft className="size-4" aria-hidden /> All work
             </Link>

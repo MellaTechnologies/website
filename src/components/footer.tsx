@@ -31,7 +31,7 @@ export function Footer() {
           <ul className="flex flex-col gap-2">
             {nav.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-accent">
+                <Link href={l.href} className="hover-accent">
                   {l.label}
                 </Link>
               </li>
@@ -43,11 +43,11 @@ export function Footer() {
           <h2 className="mb-3 font-semibold text-ink">Get in touch</h2>
           <address className="flex flex-col gap-2 not-italic">
             {site.phones.map((p) => (
-              <a key={p.tel} href={`tel:${p.tel}`} className="inline-flex items-center gap-2 hover:text-accent">
+              <a key={p.tel} href={`tel:${p.tel}`} className="inline-flex items-center gap-2 hover-accent">
                 <Phone className="size-4" aria-hidden /> {p.display}
               </a>
             ))}
-            <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 hover:text-accent">
+            <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 hover-accent">
               <Mail className="size-4" aria-hidden /> {site.email}
             </a>
           </address>
