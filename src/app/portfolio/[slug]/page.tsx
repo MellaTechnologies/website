@@ -19,9 +19,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const c = getStudy(slug);
-  if (!c) return { title: "Case study" };
+  if (!c) return { title: "የጉዳይ ጥናት" };
   return {
-    title: `${c.client} — Case study`,
+    title: `${c.client} — የጉዳይ ጥናት`,
     description: c.solution,
     alternates: { canonical: `/portfolio/${c.slug}` },
   };
@@ -69,8 +69,8 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
   const more = caseStudies.filter((s) => s.slug !== c.slug).slice(0, 2);
 
   // Two-paragraph summary built from the project facts, so every case reads at a consistent length.
-  const intro = `Like many businesses in ${c.industry.toLowerCase()}, ${c.client} still ran the day on paper. ${c.challenge} As the business grew, keeping up this way only got harder — and the small mistakes added up. They needed one simple digital system the whole team could use day to day, with nothing new to manage.`;
-  const approach = `We worked side by side with ${c.client}, learning how the team already worked before building anything. ${c.solution} ${c.result}`;
+  const intro = `እንደ ${c.industry} ዘርፍ እንደ ብዙ ንግዶች፣ ${c.client} አሁንም ቀኑን በወረቀት ያከናውን ነበር። ${c.challenge} ንግዱ እያደገ ሲሄድ በዚህ መንገድ መቀጠል ይበልጥ አስቸጋሪ ሆነ — ጥቃቅን ስህተቶችም ተደማመሩ። መላው ቡድን ዕለት ዕለት ሊጠቀምበት የሚችል፣ አዲስ የሚያስተዳድሩት ነገር የሌለው አንድ ቀላል ዲጂታል ሥርዓት ያስፈልጋቸው ነበር።`;
+  const approach = `ከ${c.client} ጎን ለጎን ሠራን፣ ማንኛውንም ነገር ከመገንባታችን በፊት ቡድኑ አስቀድሞ እንዴት እንደሚሠራ ተማርን። ${c.solution} ${c.result}`;
 
   return (
     <main>
@@ -83,7 +83,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
               href="/portfolio"
               className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent underline-offset-4 hover-underline"
             >
-              <ArrowLeft className="size-4" aria-hidden /> All work
+              <ArrowLeft className="size-4" aria-hidden /> ሁሉም ሥራዎች
             </Link>
           </div>
           <div style={{ "--d": "0.06s" } as React.CSSProperties}>
@@ -116,12 +116,12 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <section className="py-16 sm:py-20">
         <div className={`${container} grid gap-12 md:grid-cols-2`} data-reveal>
           <div>
-            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">The challenge</h2>
+            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">ተግዳሮቱ</h2>
             <p className="mt-4 text-lg leading-relaxed text-muted">{c.challenge}</p>
             <Points items={c.challengePoints} />
           </div>
           <div>
-            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">The solution</h2>
+            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">መፍትሔው</h2>
             <p className="mt-4 text-lg leading-relaxed text-muted">{c.solution}</p>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {/* Solution features — hover a row to reveal its description */}
       <section className="border-t border-line py-16 sm:py-20">
         <div className={`${container} grid gap-10 md:grid-cols-[1fr_1.3fr]`} data-reveal>
-          <h2 className="font-display text-[clamp(26px,3.6vw,40px)] leading-tight">Solution features</h2>
+          <h2 className="font-display text-[clamp(26px,3.6vw,40px)] leading-tight">የመፍትሔው ባህሪያት</h2>
           <ul className="border-b border-line">
             {c.solutionPoints.map((p) => {
               const [name, ...rest] = p.split(" — ");
@@ -156,7 +156,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <section className="border-t border-line py-16 sm:py-20">
         <div className={container}>
           <h2 className="font-display text-[clamp(22px,3vw,32px)] leading-tight" data-reveal>
-            More work
+            ተጨማሪ ሥራዎች
           </h2>
           <ul className="mt-8 grid gap-6 md:grid-cols-2" data-reveal>
             {more.map((m) => {
@@ -180,7 +180,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </div>
       </section>
 
-      <CTASection title="Want a solution like this one?" />
+      <CTASection title="እንደዚህ ያለ መፍትሔ ይፈልጋሉ?" />
     </main>
   );
 }

@@ -50,11 +50,11 @@ export function StackedWork() {
     <section ref={root} className="border-y border-line bg-sand py-20 sm:py-24">
       <div className={`${container} flex flex-wrap items-end justify-between gap-4`}>
         <div>
-          <Eyebrow>Selected work</Eyebrow>
-          <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-tight">Results you can measure</h2>
+          <Eyebrow>የተመረጡ ሥራዎች</Eyebrow>
+          <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-tight">ሊለኩ የሚችሉ ውጤቶች</h2>
         </div>
         <Link href="/portfolio" className="font-semibold text-accent underline-offset-4 hover-underline">
-          View portfolio <ArrowUpRight className="inline size-4" aria-hidden />
+          ፖርትፎሊዮ ይመልከቱ <ArrowUpRight className="inline size-4" aria-hidden />
         </Link>
       </div>
 
@@ -85,16 +85,16 @@ export function StackedWork() {
                   <div className="flex items-center gap-6">
                     <span className="font-display text-3xl text-onaccent/70">{String(i + 1).padStart(2, "0")}</span>
                     <div>
-                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">Client</p>
+                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">ደንበኛ</p>
                       <p className="font-semibold">{c.client}</p>
                     </div>
                     <div className="hidden sm:block">
-                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">Expertise</p>
+                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">ዘርፍ</p>
                       <p className="font-semibold">{c.industry}</p>
                     </div>
                   </div>
                   <MoveButton href="/portfolio" variant="overlay" size="sm" className="text-sm">
-                    View project
+                    ፕሮጀክቱን ይመልከቱ
                   </MoveButton>
                 </div>
 

@@ -61,7 +61,7 @@ export function PortfolioGrid() {
                 <div className="port-reveal-inner">
                   <p className="mt-2 max-w-md text-[14px] leading-relaxed text-onaccent/85">{c.solution}</p>
                   <MoveButton href={`/portfolio/${c.slug}`} variant="overlay" size="sm" className="mt-3 text-sm">
-                    View project
+                    ፕሮጀክቱን ይመልከቱ
                   </MoveButton>
                 </div>
               </div>

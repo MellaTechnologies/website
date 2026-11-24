@@ -18,9 +18,9 @@ function HeroObject() {
 }
 
 const pillars = [
-  { num: "01", title: "Digitize", img: "/nat-digitize.png", body: "We replace the stock book, receipt pad and shared Excel file with simple tools built around how you work." },
-  { num: "02", title: "Train", img: "/nat-train.png", body: "We train your staff hands-on until they're confident — so nobody slips back to the notebook." },
-  { num: "03", title: "Support", img: "/nat-support.png", body: "A local team you can call or meet. We check in, fix issues fast, and grow the system with you." },
+  { num: "01", title: "ዲጂታል ማድረግ", img: "/nat-digitize.png", body: "የዕቃ መዝገብን፣ የደረሰኝ ደብተርንና የጋራ የኤክሴል ፋይልን በሥራ ዘይቤዎ ዙሪያ በተገነቡ ቀላል መሣሪያዎች እንተካለን።" },
+  { num: "02", title: "ማሠልጠን", img: "/nat-train.png", body: "ሠራተኞችዎ እስኪተማመኑ ድረስ በተግባር እናሠለጥናለን — ስለዚህ ማንም ወደ ደብተሩ አይመለስም።" },
+  { num: "03", title: "ድጋፍ", img: "/nat-support.png", body: "የሚደውሉለት ወይም የሚገናኙት አካባቢያዊ ቡድን። እንከታተላለን፣ ችግሮችን በፍጥነት እናስተካክላለን፣ ሥርዓቱንም ከእርስዎ ጋር እናሳድጋለን።" },
 ];
 
 export default function Home() {
@@ -41,17 +41,16 @@ export default function Home() {
               style={{ "--d": "0s" } as React.CSSProperties}
               className="font-display text-[clamp(40px,6.4vw,66px)] leading-[1.04]"
             >
-              Let&apos;s optimize your workflow
+              የሥራ ፍሰትዎን እናሻሽል
             </h1>
             <p style={{ "--d": "0.12s" } as React.CSSProperties} className="mt-5 max-w-xl text-lg text-muted">
-              We turn paper records, notebooks and spreadsheets into simple digital systems — so you spend more time on
-              your customers.
+              የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች እንቀይራለን — ስለዚህ ለደንበኞችዎ የበለጠ ጊዜ ይሰጣሉ።
             </p>
             <div style={{ "--d": "0.27s" } as React.CSSProperties} className="mt-9 flex flex-wrap gap-3">
               <MoveButton href={appointmentHref} variant="primary" showArrow={false}>
-                <CalendarCheck className="size-[1.1em]" aria-hidden /> Make an appointment
+                <CalendarCheck className="size-[1.1em]" aria-hidden /> ቀጠሮ ይያዙ
               </MoveButton>
-              <MoveButton href="/services">See what we digitize</MoveButton>
+              <MoveButton href="/services">ምን ዲጂታል እንደምናደርግ ይመልከቱ</MoveButton>
             </div>
           </div>
 
@@ -64,9 +63,9 @@ export default function Home() {
       {/* What we do — numbered pillars */}
       <section aria-labelledby="pillars-title" className="py-20 sm:py-24">
         <div className={container}>
-          <Eyebrow>How we work</Eyebrow>
+          <Eyebrow>እንዴት እንደምንሠራ</Eyebrow>
           <h2 id="pillars-title" className="max-w-2xl font-display text-[clamp(30px,4vw,44px)] leading-tight">
-            Anything done by hand can be done better digitally
+            በእጅ የሚሠራ ማንኛውም ነገር በዲጂታል በተሻለ ሊሠራ ይችላል
           </h2>
           <div className="mt-12 grid items-start gap-5 md:grid-cols-3" data-reveal>
             {pillars.map(({ num, title, img, body }) => (

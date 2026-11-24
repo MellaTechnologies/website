@@ -119,8 +119,8 @@ function Aurora() {
 
 /** Closing call-to-action band, shared across pages. */
 export function CTASection({
-  title = "Ready to go from manual to digital?",
-  body = "Book a free consultation at your office or ours. We'll look at your paperwork and show you what going digital would look like — no obligation.",
+  title = "ከእጅ ሥራ ወደ ዲጂታል ለመሸጋገር ዝግጁ ኖት?",
+  body = "በቢሮዎ ወይም በእኛ ቢሮ ነፃ ምክክር ይያዙ። የወረቀት ሥራዎን እንመለከታለን፣ ዲጂታል መሆን ምን እንደሚመስል እናሳይዎታለን — ምንም ግዴታ የለም።",
 }: {
   title?: string;
   body?: string;
@@ -133,9 +133,9 @@ export function CTASection({
         <p className="mt-4 text-lg text-muted">{body}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <MoveButton href={appointmentHref} variant="primary" showArrow={false}>
-            <CalendarCheck className="size-[1.1em]" aria-hidden /> Make an appointment
+            <CalendarCheck className="size-[1.1em]" aria-hidden /> ቀጠሮ ይያዙ
           </MoveButton>
-          <MoveButton href="/contact">Contact us</MoveButton>
+          <MoveButton href="/contact">ያግኙን</MoveButton>
         </div>
       </div>
     </section>

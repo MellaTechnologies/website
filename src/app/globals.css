@@ -12,8 +12,8 @@
   --color-onaccent: #fcf3e6; /* text on terracotta */
   --color-line: rgb(44 28 18 / 0.12);
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-caudex), Georgia, serif;
+  --font-sans: var(--font-inter), var(--font-noto-ethiopic), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-caudex), var(--font-noto-serif-ethiopic), Georgia, serif;
 }
 
 html {

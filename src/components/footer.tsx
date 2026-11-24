@@ -6,10 +6,10 @@ import { container } from "./ui";
 import { site } from "@/lib/site";
 
 const nav = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { href: "/about", label: "ስለ እኛ" },
+  { href: "/services", label: "አገልግሎቶች" },
   // { href: "/portfolio", label: "Portfolio" }, // temporarily hidden — no projects yet
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "ያግኙን" },
 ];
 
 export function Footer() {
@@ -17,17 +17,16 @@ export function Footer() {
     <footer className="border-t border-line bg-sand pt-14 text-sm text-muted">
       <div className={`${container} grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]`}>
         <div>
-          <Link href="/" aria-label="Mella Technologies — home">
+          <Link href="/" aria-label="Mella Technologies — መነሻ">
             <Logo markClassName="h-[29px] w-6" wordClassName="text-[22px]" />
           </Link>
           <p className="mt-4 max-w-xs leading-relaxed">
-            A customer-first software company turning paper records, notebooks and spreadsheets into simple digital
-            systems.
+            የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች የምትቀይር ደንበኛን ቀዳሚ የምታደርግ የሶፍትዌር ኩባንያ።
           </p>
         </div>
 
-        <nav aria-label="Footer">
-          <h2 className="mb-3 font-semibold text-ink">Pages</h2>
+        <nav aria-label="የግርጌ">
+          <h2 className="mb-3 font-semibold text-ink">ገጾች</h2>
           <ul className="flex flex-col gap-2">
             {nav.map((l) => (
               <li key={l.href}>
@@ -40,7 +39,7 @@ export function Footer() {
         </nav>
 
         <div>
-          <h2 className="mb-3 font-semibold text-ink">Get in touch</h2>
+          <h2 className="mb-3 font-semibold text-ink">ያግኙን</h2>
           <address className="flex flex-col gap-2 not-italic">
             {site.phones.map((p) => (
               <a key={p.tel} href={`tel:${p.tel}`} className="inline-flex items-center gap-2 hover-accent">
@@ -56,9 +55,9 @@ export function Footer() {
 
       <div className={`${container} mt-12 flex flex-wrap justify-between gap-2 border-t border-line py-6`}>
         <p>
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+          © {new Date().getFullYear()} {site.name}። መብቱ በሕግ የተጠበቀ ነው።
         </p>
-        <p>Customer first · Manual to digital</p>
+        <p>ደንበኛ ቀዳሚ · ከእጅ ወደ ዲጂታል</p>
       </div>
 
       {/* Sunset illustration — a quiet closing moment, fading up into the cream footer. */}

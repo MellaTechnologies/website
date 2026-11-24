@@ -7,24 +7,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 /** Mella's core services. Name shows at rest; the line reveals on hover. */
 const services = [
   {
-    name: "Software Development",
-    body: "Custom systems built around how your business actually works — not off-the-shelf software you bend to fit.",
+    name: "የሶፍትዌር ልማት",
+    body: "ንግድዎ በትክክል በሚሠራበት ዘይቤ ዙሪያ የተገነቡ ብጁ ሥርዓቶች — እንዲመጥን የሚያጣምሙት ዝግጁ ሶፍትዌር አይደለም።",
   },
   {
-    name: "Implementation",
-    body: "We set it up, move your existing records in, and get it running inside your real workflow.",
+    name: "ተግባራዊ ማድረግ",
+    body: "እናዘጋጀዋለን፣ ያሉዎትን መዝገቦች እናስገባለን፣ በእውነተኛ የሥራ ፍሰትዎ ውስጥም እናስኬደዋለን።",
   },
   {
-    name: "Maintenance",
-    body: "We keep it running smoothly, fix issues quickly, and adapt the system as your needs change.",
+    name: "ጥገና",
+    body: "በተቀላጠፈ ሁኔታ እንዲሠራ እናደርጋለን፣ ችግሮችን በፍጥነት እናስተካክላለን፣ ፍላጎትዎ ሲቀየርም ሥርዓቱን እናስማማለን።",
   },
   {
-    name: "Training",
-    body: "Hands-on sessions until your team is confident — so nobody slips back to the notebook.",
+    name: "ስልጠና",
+    body: "ቡድንዎ እስኪተማመን ድረስ ተግባራዊ ክፍለ ጊዜዎች — ስለዚህ ማንም ወደ ደብተሩ አይመለስም።",
   },
   {
-    name: "Technical Support",
-    body: "A local team you can call or visit whenever something needs attention.",
+    name: "ቴክኒካል ድጋፍ",
+    body: "አንድ ነገር ትኩረት ባስፈለገው ጊዜ የሚደውሉለት ወይም የሚጎበኙት አካባቢያዊ ቡድን።",
   },
 ];
 

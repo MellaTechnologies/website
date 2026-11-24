@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Caudex } from "next/font/google";
+import { Inter, Caudex, Noto_Sans_Ethiopic, Noto_Serif_Ethiopic } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
@@ -8,6 +8,14 @@ import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const caudex = Caudex({ variable: "--font-caudex", weight: ["400", "700"], subsets: ["latin"], display: "swap" });
+// Ethiopic (Ge'ez) script support for the Amharic UI — variable fonts, so no weight needed.
+// Chained after Inter/Caudex in globals.css so Latin brand text keeps its original face.
+const notoEthiopic = Noto_Sans_Ethiopic({ variable: "--font-noto-ethiopic", subsets: ["ethiopic"], display: "swap" });
+const notoSerifEthiopic = Noto_Serif_Ethiopic({
+  variable: "--font-noto-serif-ethiopic",
+  subsets: ["ethiopic"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -68,8 +76,8 @@ const jsonLd = {
         areaServed: site.country,
         availableLanguage: ["English", "Amharic"],
       },
-      slogan: "Customer first. Manual to digital.",
-      knowsAbout: ["Digital transformation", "Custom business software", ...solutions.map((m) => m.name)],
+      slogan: "ደንበኛ ቀዳሚ። ከእጅ ወደ ዲጂታል።",
+      knowsAbout: ["ዲጂታል ሽግግር", "ብጁ የንግድ ሶፍትዌር", ...solutions.map((m) => m.name)],
       makesOffer: solutions.map((m) => ({
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: m.name, description: m.body, areaServed: site.country },
@@ -82,14 +90,17 @@ const jsonLd = {
       name: site.name,
       description: site.description,
       publisher: { "@id": `${site.url}/#organization` },
-      inLanguage: "en",
+      inLanguage: "am",
     },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${caudex.variable}`}>
+    <html
+      lang="am"
+      className={`${inter.variable} ${caudex.variable} ${notoEthiopic.variable} ${notoSerifEthiopic.variable}`}
+    >
       <body className="font-sans leading-relaxed">
         <SmoothScroll />
         <Header />

@@ -28,14 +28,14 @@ export function WorkCarousel() {
     <section className="border-y border-line bg-sand py-16 sm:py-20">
       <div className={`${container} flex flex-wrap items-end justify-between gap-4`}>
         <div>
-          <Eyebrow>Selected work</Eyebrow>
-          <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-tight">Results you can measure</h2>
+          <Eyebrow>የተመረጡ ሥራዎች</Eyebrow>
+          <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-tight">ሊለኩ የሚችሉ ውጤቶች</h2>
         </div>
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => scrollByCard(-1)}
-            aria-label="Previous project"
+            aria-label="ቀዳሚ ፕሮጀክት"
             className="grid size-11 place-items-center rounded-full border border-ink/25 text-ink transition active:scale-95"
           >
             <ArrowLeft className="size-5" aria-hidden />
@@ -43,7 +43,7 @@ export function WorkCarousel() {
           <button
             type="button"
             onClick={() => scrollByCard(1)}
-            aria-label="Next project"
+            aria-label="ቀጣይ ፕሮጀክት"
             className="grid size-11 place-items-center rounded-full border border-ink/25 text-ink transition active:scale-95"
           >
             <ArrowRight className="size-5" aria-hidden />
@@ -74,16 +74,16 @@ export function WorkCarousel() {
                   <div className="flex items-center gap-5">
                     <span className="font-display text-3xl text-onaccent/70">{String(i + 1).padStart(2, "0")}</span>
                     <div>
-                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">Client</p>
+                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">ደንበኛ</p>
                       <p className="font-semibold">{c.client}</p>
                     </div>
                     <div className="hidden sm:block">
-                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">Expertise</p>
+                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">ዘርፍ</p>
                       <p className="font-semibold">{c.industry}</p>
                     </div>
                   </div>
                   <MoveButton href="/portfolio" variant="overlay" size="sm" className="text-sm">
-                    View
+                    ይመልከቱ
                   </MoveButton>
                 </div>
 
@@ -102,7 +102,7 @@ export function WorkCarousel() {
 
       <div className={`${container} mt-6`}>
         <Link href="/portfolio" className="font-semibold text-accent underline-offset-4 hover-underline">
-          View full portfolio <ArrowUpRight className="inline size-4" aria-hidden />
+          ሙሉ ፖርትፎሊዮ ይመልከቱ <ArrowUpRight className="inline size-4" aria-hidden />
         </Link>
       </div>
     </section>
