@@ -77,11 +77,11 @@ const jsonLd = {
         areaServed: site.country,
         availableLanguage: ["English", "Amharic"],
       },
-      slogan: "ደንበኛ ቀዳሚ። ከእጅ ወደ ዲጂታል።",
-      knowsAbout: ["ዲጂታል ሽግግር", "ብጁ የንግድ ሶፍትዌር", ...solutions.map((m) => m.name.am)],
+      slogan: "Customer first. Manual to digital.",
+      knowsAbout: ["Digital transformation", "Custom business software", ...solutions.map((m) => m.name.en)],
       makesOffer: solutions.map((m) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: m.name.am, description: m.body.am, areaServed: site.country },
+        itemOffered: { "@type": "Service", name: m.name.en, description: m.body.en, areaServed: site.country },
       })),
     },
     {
@@ -91,7 +91,7 @@ const jsonLd = {
       name: site.name,
       description: site.description,
       publisher: { "@id": `${site.url}/#organization` },
-      inLanguage: "am",
+      inLanguage: "en",
     },
   ],
 };
@@ -99,8 +99,8 @@ const jsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="am"
-      data-lang="am"
+      lang="en"
+      data-lang="en"
       className={`${inter.variable} ${caudex.variable} ${notoEthiopic.variable} ${notoSerifEthiopic.variable}`}
     >
       <head>

@@ -20,10 +20,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const c = getStudy(slug);
-  if (!c) return { title: "የጉዳይ ጥናት" };
+  if (!c) return { title: "Case study" };
   return {
-    title: `${c.client.am} — የጉዳይ ጥናት`,
-    description: c.solution.am,
+    title: `${c.client.en} — Case study`,
+    description: c.solution.en,
     alternates: { canonical: `/portfolio/${c.slug}` },
   };
 }

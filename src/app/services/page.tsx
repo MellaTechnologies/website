@@ -6,9 +6,9 @@ import { CTASection, PageHero, container, Eyebrow } from "@/components/ui";
 import { T } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "አገልግሎቶች",
+  title: "Services",
   description:
-    "Mella Technologies ዲጂታል የሚያደርገው፦ ዕቃና ክምችት፣ ሽያጭና የሽያጭ ነጥብ፣ የደንበኛ መዝገቦች፣ ቀጠሮዎች፣ ሠራተኞችና ደመወዝ፣ ሪፖርቶች፣ ቅጾች፣ ኤክሴልን ወደ መተግበሪያ፣ ድር ጣቢያዎችና ብጁ መተግበሪያዎች — ከስልጠናና ድጋፍ ጋር።",
+    "What Mella Technologies digitizes: stock and inventory, sales and point of sale, customer records, bookings, staff and payroll, reports, forms, Excel-to-app, websites and custom apps — with training and support.",
   alternates: { canonical: "/services" },
 };
 
