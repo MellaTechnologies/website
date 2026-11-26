@@ -21,7 +21,7 @@ export default function Services() {
         lead={
           <T
             en="Pick the processes that slow you down. We connect them as you grow. If it's done by hand today, we can digitize it."
-            am="የሚያዘገዩዎትን ሂደቶች ይምረጡ። እርስዎ ሲያድጉ እናገናኛቸዋለን። ዛሬ በእጅ የሚሠራ ከሆነ ዲጂታል ልናደርገው እንችላለን።"
+            am="ስራዎን ያዘገየቦትን ይንገሩን ፣እኛ እናቀላጥፍሎታለን። ዛሬ በእጅ የሚሠራ ከሆነ ዲጂታል ልናደርገው እንችላለን።"
           />
         }
       />
@@ -42,7 +42,7 @@ export default function Services() {
               am="በዝርዝሩ ውስጥ የለም? ዛሬ በእጅ የሚሠራ ከሆነ ዲጂታል ልናደርገው እንችላለን። "
             />
             <a href={appointmentHref} className="font-semibold text-accent underline-offset-4 hover-underline">
-              <T en="Tell us about it" am="ስለ እሱ ይንገሩን" />
+              <T en="Tell us about it" am="ያነጋግሩን" />
             </a>
           </p>
         </div>

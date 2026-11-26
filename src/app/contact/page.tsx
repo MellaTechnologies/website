@@ -17,11 +17,11 @@ export default function Contact() {
     <main>
       <PageHero
         eyebrow={<T en="Contact" am="ያግኙን" />}
-        title={<T en="Let's talk about your business" am="ስለ ንግድዎ እንነጋገር" />}
+        title={<T en="Let's talk about your business" am="ስለ ስራዎ እንነጋገር" />}
         lead={
           <T
             en="Call or email us with a question, or book a free consultation at your office or ours. We'll look at your paperwork and show you what going digital would look like — no obligation."
-            am="ጥያቄ ካለዎት ይደውሉልን ወይም ኢሜይል ይላኩልን፣ ወይም በቢሮዎ ወይም በእኛ ቢሮ ነፃ ምክክር ይያዙ። የወረቀት ሥራዎን እንመለከታለን፣ ዲጂታል መሆን ምን እንደሚመስል እናሳይዎታለን — ምንም ግዴታ የለም።"
+            am="ጥያቄ ካለዎት ይደውሉልን ወይም ኢሜይል ይላኩልን። የወረቀት ሥራዎን እንመለከታለን፣ ዲጂታል መሆን ምን እንደሚመስል እናሳይዎታለን።"
           />
         }
       />
@@ -60,10 +60,10 @@ export default function Contact() {
           <div className="rounded-2xl border border-accent/25 bg-surface p-6 text-center shadow-[0_14px_34px_rgb(44_28_18/0.08)]">
             <CalendarCheck className="mx-auto mb-4 size-7 text-accent" strokeWidth={1.6} aria-hidden />
             <h2 className="text-lg font-semibold">
-              <T en="Book a visit" am="ጉብኝት ይያዙ" />
+              <T en="Book a visit" am=" ቀጠሮ ይያዙ" />
             </h2>
             <p className="mt-1 mb-5 text-muted">
-              <T en="A free on-site consultation." am="ነፃ የቦታ ላይ ምክክር።" />
+              <T en="A free on-site consultation." am="ነፃ ምክክር።" />
             </p>
             <MoveButton href={appointmentHref} variant="primary" showArrow={false}>
               <CalendarCheck className="size-[1.1em]" aria-hidden /> <T en="Make an appointment" am="ቀጠሮ ይያዙ" />

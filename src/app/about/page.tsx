@@ -33,7 +33,7 @@ export default function About() {
           <p className="mt-4 text-[17px] leading-relaxed text-muted">
             <T
               en={`${site.name} replaces the manual steps that slow businesses down — the stock book, the receipt pad, the Excel file passed around — with tools that are faster, safer and easy for your team to use.`}
-              am={`${site.name} ንግዶችን የሚያዘገዩ የእጅ ሥራ ደረጃዎችን — የዕቃ መዝገብን፣ የደረሰኝ ደብተርን፣ የሚዘዋወረውን የኤክሴል ፋይል — ፈጣን፣ ደህንነታቸው የተጠበቀና ቡድንዎ ለመጠቀም ቀላል በሆኑ መሣሪያዎች ይተካል።`}
+              am={`${site.name} ንግዶችን የሚያዘገዩ የእጅ ሥራ ሂደቶችን — የዕቃ መዝገብን፣ የደረሰኝ፣ የሚዘዋወረውን የኤክሴል ፋይል — ፈጣን፣ ደህንነታቸው የተጠበቀና ቡድንዎ ለመጠቀም ቀላል በሆኑ ሶፍትዌሮች ይተካል።`}
             />
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-muted">
@@ -55,8 +55,8 @@ export default function About() {
 
             <p>
               <T
-                en={`We are a team of developers, designers and marketers. Before ${site.name}, we worked with multiple local and international companies in freelancing, contractual or long term engagements, learning how real businesses run and what actually helps them.`}
-                am={`እኛ የገንቢዎች፣ የዲዛይነሮችና የገበያተኞች ቡድን ነን። ከ${site.name} በፊት፣ ከበርካታ አገር ውስጥና ዓለም አቀፍ ኩባንያዎች ጋር በፍሪላንስ፣ በውል ወይም በረጅም ጊዜ ተሳትፎ ሠርተናል፣ እውነተኛ ንግዶች እንዴት እንደሚሠሩና በትክክል ምን እንደሚጠቅማቸውም ተምረናል።`}
+                en={`Before ${site.name}, we worked with multiple local and international companies in freelancing, contractual or long term engagements, learning how real businesses run and what actually helps them.`}
+                am={`እኛ ${site.name}ዎች ከበርካታ አገር ውስጥና ዓለም አቀፍ ኩባንያዎች ጋር በፍሪላንስ፣ በውል ወይም በረጅም ጊዜ ተሳትፎ ሠርተናል፣ እውነተኛ ንግዶች እንዴት እንደሚሠሩና በትክክል ምን እንደሚጠቅማቸውም ተምረናል።`}
               />
             </p>
             <p>
@@ -68,14 +68,14 @@ export default function About() {
             <p>
               <T
                 en="And we keep looking ahead — at new tools and better ways of working — so the systems we build stay useful long after launch."
-                am="እንዲሁም ወደፊት መመልከታችንን እንቀጥላለን — አዳዲስ መሣሪያዎችንና የተሻሉ የአሠራር ዘዴዎችን — ስለዚህ የምንገነባቸው ሥርዓቶች ከጀመሩ ከረጅም ጊዜ በኋላም ጠቃሚ ሆነው ይቆያሉ።"
+                am="እንዲሁም ወደፊት መመልከታችንን እንቀጥላለን — አዳዲስ ሶፍትዌሮችንና የተሻሉ የአሠራር ዘዴዎችን — ስለዚህ የምንገነባቸው ሥርዓቶች ከጀመሩ ከረጅም ጊዜ በኋላም ጠቃሚ ሆነው ይቆያሉ።"
               />
             </p>
           </div>
         </div>
       </section>
 
-      <CTASection title={<T en="Let's talk about your business" am="ስለ ንግድዎ እንነጋገር" />} />
+      <CTASection title={<T en="Let's talk about your business" am="ስለስራዎ እንነጋገር" />} />
     </main>
   );
 }
