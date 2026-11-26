@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-export const alt = `${site.name} — የእጅ ሥራን ወደ ዲጂታል ሥርዓት መቀየር`;
+export const alt = `${site.name} — turn manual work into digital systems`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

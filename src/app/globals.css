@@ -32,14 +32,14 @@ body {
 }
 
 /* Bilingual UI: show only the language matching <html data-lang>.
-   Default (no attribute yet) falls back to Amharic. */
-[data-lang-text="en"] {
+   Default (no attribute yet) falls back to English. */
+[data-lang-text="am"] {
   display: none;
 }
-html[data-lang="en"] [data-lang-text="en"] {
+html[data-lang="am"] [data-lang-text="am"] {
   display: inline;
 }
-html[data-lang="en"] [data-lang-text="am"] {
+html[data-lang="am"] [data-lang-text="en"] {
   display: none;
 }
 

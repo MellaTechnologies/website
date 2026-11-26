@@ -6,9 +6,9 @@ import { MoveButton } from "@/components/move-button";
 import { T } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "ያግኙን",
+  title: "Contact",
   description:
-    "Mella Technologies ያግኙ። ይደውሉልን ወይም ኢሜይል ይላኩልን፣ ወይም ዲጂታል መሆን ለንግድዎ ምን እንደሚመስል ለማየት ነፃ የቦታ ላይ ምክክር ይያዙ።",
+    "Get in touch with Mella Technologies. Call or email us, or book a free on-site consultation to see what going digital would look like for your business.",
   alternates: { canonical: "/contact" },
 };
 

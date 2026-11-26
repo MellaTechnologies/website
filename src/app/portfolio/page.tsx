@@ -4,9 +4,9 @@ import { PortfolioGrid } from "@/components/portfolio-grid";
 import { T } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "ፖርትፎሊዮ",
+  title: "Portfolio",
   description:
-    "ከMella Technologies የተመረጡ ሥራዎች — በችርቻሮ፣ በጤና እንክብካቤ፣ በሎጂስቲክስ፣ በእንግዳ አቀባበል፣ በትምህርትና በአገልግሎቶች ዘርፍ የእጅ ሂደቶችን በቀላል ዲጂታል ሥርዓቶች እንዴት እንደተካናቸው።",
+    "Selected work from Mella Technologies — how we replaced manual processes with simple digital systems across retail, healthcare, logistics, hospitality, education and services.",
   alternates: { canonical: "/portfolio" },
 };
 

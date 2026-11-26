@@ -4,9 +4,9 @@ import { site } from "@/lib/site";
 import { T } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "ስለ እኛ",
+  title: "About us",
   description:
-    "Mella Technologies ደንበኛን ቀዳሚ የምታደርግ በኢትዮጵያ የምትገኝ የሶፍትዌር ኩባንያ ናት። ከእርስዎ ጋር እንቀመጣለን፣ ንግድዎ እንዴት እንደሚሠራ እንማራለን፣ የእጅ ሥራ ደረጃዎችንም በቀላል ዲጂታል ሥርዓቶች እንተካለን — ከስልጠናና ድጋፍ ጋር።",
+    "Mella Technologies is a customer-first software company in Ethiopia. We sit with you, learn how your business runs, and replace manual steps with simple digital systems — training and support included.",
   alternates: { canonical: "/about" },
 };
 

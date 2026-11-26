@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export type Dict = { en: string; am: string };
 
 export const LANG_STORAGE_KEY = "mella-lang";
-export const DEFAULT_LANG = "am" as const;
+export const DEFAULT_LANG = "en" as const;
 export type Lang = "en" | "am";
 
 /**
