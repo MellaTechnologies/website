@@ -37,12 +37,13 @@ export const site = {
 
 export const appointmentHref = `mailto:${site.email}?subject=${encodeURIComponent("Appointment request / የቀጠሮ ጥያቄ")}`;
 
-/** Credibility figures shown in the stat strips. */
-export const stats: { value: string; label: Dict }[] = [
+/** Credibility figures shown in the stat strips. `value` may be language-neutral
+ *  (a number) or a translated word. */
+export const stats: { value: string | Dict; label: Dict }[] = [
   { value: "100%", label: { en: "Customer-first, every project", am: "ደንበኛ ቀዳሚ፣ በእያንዳንዱ ፕሮጀክት" } },
   { value: "1 → ∞", label: { en: "Start with one process, grow at your pace", am: "ከአንድ ሂደት ጀምሮ በፍጥነትዎ ያድጉ" } },
-  { value: "Free", label: { en: "On-site consultation to begin", am: "ለመጀመር የቦታ ላይ ምክክር" } },
-  { value: "Local", label: { en: "Team you can call, email or meet", am: "የሚደውሉለት፣ ኢሜይል የሚልኩለት ወይም የሚገናኙት ቡድን" } },
+  { value: { en: "Free", am: "በነፃ" }, label: { en: "On-site consultation to begin", am: "ለመጀመር የቦታ ላይ ምክክር" } },
+  { value: { en: "Local", am: "ሀገር በቀል" }, label: { en: "Team you can call, email or meet", am: "የሚደውሉለት፣ ኢሜይል የሚልኩለት ወይም የሚገናኙት ቡድን" } },
 ];
 
 /**

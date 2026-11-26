@@ -77,8 +77,10 @@ export function StatStrip() {
     <section className="border-y border-line bg-sand py-5 sm:py-6">
       <dl className={`${container} grid grid-cols-2 gap-x-4 gap-y-3 text-center lg:grid-cols-4`}>
         {stats.map((s) => (
-          <div key={s.value} data-reveal>
-            <dt className="font-display text-[clamp(20px,2.6vw,30px)] text-accent">{s.value}</dt>
+          <div key={s.label.en} data-reveal>
+            <dt className="font-display text-[clamp(20px,2.6vw,30px)] text-accent">
+              {typeof s.value === "string" ? s.value : <T en={s.value.en} am={s.value.am} />}
+            </dt>
             <dd className="mt-0.5 text-[13px] text-muted">
               <T en={s.label.en} am={s.label.am} />
             </dd>
