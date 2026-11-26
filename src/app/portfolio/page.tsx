@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CTASection, PageHero, container } from "@/components/ui";
 import { PortfolioGrid } from "@/components/portfolio-grid";
+import { T } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "ፖርትፎሊዮ",
@@ -13,21 +14,26 @@ export default function Portfolio() {
   return (
     <main>
       <PageHero
-        eyebrow="ፖርትፎሊዮ"
-        title="ከእጅ ወደ ዲጂታል፣ በውጤት የሚለካ"
-        lead="እንደ እርስዎ ላሉ ንግዶች ዲጂታል ካደረግናቸው ሂደቶች መካከል የተመረጡ። እያንዳንዱ በአንድ ደብተር፣ ስፕረድሺት ወይም የወረቀት ቅጽ ተጀመረ።"
+        eyebrow={<T en="Portfolio" am="ፖርትፎሊዮ" />}
+        title={<T en="Manual to digital, measured in results" am="ከእጅ ወደ ዲጂታል፣ በውጤት የሚለካ" />}
+        lead={
+          <T
+            en="A selection of the processes we've digitized for businesses like yours. Each started with one notebook, spreadsheet or paper form."
+            am="እንደ እርስዎ ላሉ ንግዶች ዲጂታል ካደረግናቸው ሂደቶች መካከል የተመረጡ። እያንዳንዱ በአንድ ደብተር፣ ስፕረድሺት ወይም የወረቀት ቅጽ ተጀመረ።"
+          />
+        }
       />
 
       <section className="py-16 sm:py-20">
         <div className={container}>
           <PortfolioGrid />
           <p className="mt-10 text-center text-sm text-muted/80">
-            የሚታዩት ጥናቶች ለማሳያ የቀረቡ ናቸው።
+            <T en="Case studies shown are illustrative examples." am="የሚታዩት ጥናቶች ለማሳያ የቀረቡ ናቸው።" />
           </p>
         </div>
       </section>
 
-      <CTASection title="ንግድዎ ቀጣዩ ሊሆን ይችላል" />
+      <CTASection title={<T en="Your business could be next" am="ንግድዎ ቀጣዩ ሊሆን ይችላል" />} />
     </main>
   );
 }

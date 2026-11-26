@@ -31,6 +31,47 @@ body {
   color: var(--color-onaccent);
 }
 
+/* Bilingual UI: show only the language matching <html data-lang>.
+   Default (no attribute yet) falls back to Amharic. */
+[data-lang-text="en"] {
+  display: none;
+}
+html[data-lang="en"] [data-lang-text="en"] {
+  display: inline;
+}
+html[data-lang="en"] [data-lang-text="am"] {
+  display: none;
+}
+
+/* EN / አማ segmented switch */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-muted);
+  user-select: none;
+}
+.lang-toggle button {
+  padding: 2px 4px;
+  color: inherit;
+  opacity: 0.5;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+.lang-toggle button:hover {
+  opacity: 0.8;
+}
+.lang-toggle__sep {
+  opacity: 0.3;
+}
+html[data-lang="am"] .lang-toggle [data-lang-btn="am"],
+html[data-lang="en"] .lang-toggle [data-lang-btn="en"] {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
 /* Lenis smooth scroll — required base styles. */
 html.lenis,
 html.lenis body {

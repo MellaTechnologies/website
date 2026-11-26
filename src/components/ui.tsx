@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CalendarCheck } from "lucide-react";
 import { MoveButton } from "@/components/move-button";
 import { appointmentHref, stats } from "@/lib/site";
+import { T } from "@/lib/i18n";
 
 export const container = "mx-auto max-w-6xl px-5";
 export const card =
@@ -45,9 +46,9 @@ export function PageHero({
   title,
   lead,
 }: {
-  eyebrow: string;
+  eyebrow: React.ReactNode;
   title: React.ReactNode;
-  lead: string;
+  lead: React.ReactNode;
 }) {
   return (
     <section className={`relative flex min-h-[80vh] items-center overflow-hidden ${heroSky} pt-32 pb-20 sm:pt-36 sm:pb-24`}>
@@ -76,9 +77,11 @@ export function StatStrip() {
     <section className="border-y border-line bg-sand py-5 sm:py-6">
       <dl className={`${container} grid grid-cols-2 gap-x-4 gap-y-3 text-center lg:grid-cols-4`}>
         {stats.map((s) => (
-          <div key={s.label} data-reveal>
+          <div key={s.value} data-reveal>
             <dt className="font-display text-[clamp(20px,2.6vw,30px)] text-accent">{s.value}</dt>
-            <dd className="mt-0.5 text-[13px] text-muted">{s.label}</dd>
+            <dd className="mt-0.5 text-[13px] text-muted">
+              <T en={s.label.en} am={s.label.am} />
+            </dd>
           </div>
         ))}
       </dl>
@@ -119,11 +122,16 @@ function Aurora() {
 
 /** Closing call-to-action band, shared across pages. */
 export function CTASection({
-  title = "ከእጅ ሥራ ወደ ዲጂታል ለመሸጋገር ዝግጁ ኖት?",
-  body = "በቢሮዎ ወይም በእኛ ቢሮ ነፃ ምክክር ይያዙ። የወረቀት ሥራዎን እንመለከታለን፣ ዲጂታል መሆን ምን እንደሚመስል እናሳይዎታለን — ምንም ግዴታ የለም።",
+  title = <T en="Ready to go from manual to digital?" am="ከእጅ ሥራ ወደ ዲጂታል ለመሸጋገር ዝግጁ ኖት?" />,
+  body = (
+    <T
+      en="Book a free consultation at your office or ours. We'll look at your paperwork and show you what going digital would look like — no obligation."
+      am="በቢሮዎ ወይም በእኛ ቢሮ ነፃ ምክክር ይያዙ። የወረቀት ሥራዎን እንመለከታለን፣ ዲጂታል መሆን ምን እንደሚመስል እናሳይዎታለን — ምንም ግዴታ የለም።"
+    />
+  ),
 }: {
-  title?: string;
-  body?: string;
+  title?: React.ReactNode;
+  body?: React.ReactNode;
 }) {
   return (
     <section className="relative overflow-hidden border-t border-line bg-[#fbeede] py-24">
@@ -133,9 +141,11 @@ export function CTASection({
         <p className="mt-4 text-lg text-muted">{body}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <MoveButton href={appointmentHref} variant="primary" showArrow={false}>
-            <CalendarCheck className="size-[1.1em]" aria-hidden /> ቀጠሮ ይያዙ
+            <CalendarCheck className="size-[1.1em]" aria-hidden /> <T en="Make an appointment" am="ቀጠሮ ይያዙ" />
           </MoveButton>
-          <MoveButton href="/contact">ያግኙን</MoveButton>
+          <MoveButton href="/contact">
+            <T en="Contact us" am="ያግኙን" />
+          </MoveButton>
         </div>
       </div>
     </section>

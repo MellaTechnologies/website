@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/lib/site";
 import { CTASection, container, Eyebrow, heroSky, SkyArt } from "@/components/ui";
+import { T, type Dict } from "@/lib/i18n";
 
 type Study = (typeof caseStudies)[number];
 
@@ -21,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const c = getStudy(slug);
   if (!c) return { title: "የጉዳይ ጥናት" };
   return {
-    title: `${c.client} — የጉዳይ ጥናት`,
-    description: c.solution,
+    title: `${c.client.am} — የጉዳይ ጥናት`,
+    description: c.solution.am,
     alternates: { canonical: `/portfolio/${c.slug}` },
   };
 }
@@ -40,22 +41,29 @@ function Frame({ image, className = "" }: { image?: string; className?: string }
   );
 }
 
-/** Bullet list where each item is "Lead — detail"; the lead renders bold. */
-function Points({ items }: { items: readonly string[] }) {
+/** One "Lead — detail" bullet in a single language: the lead renders bold. */
+function PointBody({ text }: { text: string }) {
+  const [lead, ...rest] = text.split(" — ");
+  return (
+    <>
+      <span className="font-semibold text-ink">{lead}</span>
+      {rest.length ? ` — ${rest.join(" — ")}` : ""}
+    </>
+  );
+}
+
+/** Bullet list where each item is "Lead — detail" in both languages. */
+function Points({ items }: { items: Dict[] }) {
   return (
     <ul className="mt-6 space-y-4">
-      {items.map((p) => {
-        const [lead, ...rest] = p.split(" — ");
-        return (
-          <li key={lead} className="flex gap-3 text-lg leading-relaxed text-muted">
-            <span aria-hidden className="mt-[0.6rem] size-1.5 shrink-0 rounded-full bg-accent" />
-            <span>
-              <span className="font-semibold text-ink">{lead}</span>
-              {rest.length ? ` — ${rest.join(" — ")}` : ""}
-            </span>
-          </li>
-        );
-      })}
+      {items.map((p) => (
+        <li key={p.en} className="flex gap-3 text-lg leading-relaxed text-muted">
+          <span aria-hidden className="mt-[0.6rem] size-1.5 shrink-0 rounded-full bg-accent" />
+          <span>
+            <T en={<PointBody text={p.en} />} am={<PointBody text={p.am} />} />
+          </span>
+        </li>
+      ))}
     </ul>
   );
 }
@@ -69,8 +77,14 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
   const more = caseStudies.filter((s) => s.slug !== c.slug).slice(0, 2);
 
   // Two-paragraph summary built from the project facts, so every case reads at a consistent length.
-  const intro = `እንደ ${c.industry} ዘርፍ እንደ ብዙ ንግዶች፣ ${c.client} አሁንም ቀኑን በወረቀት ያከናውን ነበር። ${c.challenge} ንግዱ እያደገ ሲሄድ በዚህ መንገድ መቀጠል ይበልጥ አስቸጋሪ ሆነ — ጥቃቅን ስህተቶችም ተደማመሩ። መላው ቡድን ዕለት ዕለት ሊጠቀምበት የሚችል፣ አዲስ የሚያስተዳድሩት ነገር የሌለው አንድ ቀላል ዲጂታል ሥርዓት ያስፈልጋቸው ነበር።`;
-  const approach = `ከ${c.client} ጎን ለጎን ሠራን፣ ማንኛውንም ነገር ከመገንባታችን በፊት ቡድኑ አስቀድሞ እንዴት እንደሚሠራ ተማርን። ${c.solution} ${c.result}`;
+  const intro: Dict = {
+    en: `Like many businesses in ${c.industry.en.toLowerCase()}, ${c.client.en} still ran the day on paper. ${c.challenge.en} As the business grew, keeping up this way only got harder — and the small mistakes added up. They needed one simple digital system the whole team could use day to day, with nothing new to manage.`,
+    am: `እንደ ${c.industry.am} ዘርፍ እንደ ብዙ ንግዶች፣ ${c.client.am} አሁንም ቀኑን በወረቀት ያከናውን ነበር። ${c.challenge.am} ንግዱ እያደገ ሲሄድ በዚህ መንገድ መቀጠል ይበልጥ አስቸጋሪ ሆነ — ጥቃቅን ስህተቶችም ተደማመሩ። መላው ቡድን ዕለት ዕለት ሊጠቀምበት የሚችል፣ አዲስ የሚያስተዳድሩት ነገር የሌለው አንድ ቀላል ዲጂታል ሥርዓት ያስፈልጋቸው ነበር።`,
+  };
+  const approach: Dict = {
+    en: `We worked side by side with ${c.client.en}, learning how the team already worked before building anything. ${c.solution.en} ${c.result.en}`,
+    am: `ከ${c.client.am} ጎን ለጎን ሠራን፣ ማንኛውንም ነገር ከመገንባታችን በፊት ቡድኑ አስቀድሞ እንዴት እንደሚሠራ ተማርን። ${c.solution.am} ${c.result.am}`,
+  };
 
   return (
     <main>
@@ -83,20 +97,22 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
               href="/portfolio"
               className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent underline-offset-4 hover-underline"
             >
-              <ArrowLeft className="size-4" aria-hidden /> ሁሉም ሥራዎች
+              <ArrowLeft className="size-4" aria-hidden /> <T en="All work" am="ሁሉም ሥራዎች" />
             </Link>
           </div>
           <div style={{ "--d": "0.06s" } as React.CSSProperties}>
-            <Eyebrow>{c.industry}</Eyebrow>
+            <Eyebrow>
+              <T en={c.industry.en} am={c.industry.am} />
+            </Eyebrow>
           </div>
           <h1
             style={{ "--d": "0.12s" } as React.CSSProperties}
             className="max-w-3xl font-display text-[clamp(36px,6vw,60px)] leading-[1.05]"
           >
-            {c.client}
+            <T en={c.client.en} am={c.client.am} />
           </h1>
           <p style={{ "--d": "0.18s" } as React.CSSProperties} className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            {c.solution}
+            <T en={c.solution.en} am={c.solution.am} />
           </p>
         </div>
       </section>
@@ -106,8 +122,12 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         <div className={container}>
           <Frame image={image} className="aspect-[16/9]" />
           <div className="mt-8 max-w-3xl space-y-4 text-lg leading-relaxed text-ink/90 sm:text-xl" data-reveal>
-            <p>{intro}</p>
-            <p>{approach}</p>
+            <p>
+              <T en={intro.en} am={intro.am} />
+            </p>
+            <p>
+              <T en={approach.en} am={approach.am} />
+            </p>
           </div>
         </div>
       </section>
@@ -116,13 +136,21 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <section className="py-16 sm:py-20">
         <div className={`${container} grid gap-12 md:grid-cols-2`} data-reveal>
           <div>
-            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">ተግዳሮቱ</h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted">{c.challenge}</p>
+            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">
+              <T en="The challenge" am="ተግዳሮቱ" />
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted">
+              <T en={c.challenge.en} am={c.challenge.am} />
+            </p>
             <Points items={c.challengePoints} />
           </div>
           <div>
-            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">መፍትሔው</h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted">{c.solution}</p>
+            <h2 className="font-display text-[clamp(24px,3.2vw,34px)] leading-tight">
+              <T en="The solution" am="መፍትሔው" />
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted">
+              <T en={c.solution.en} am={c.solution.am} />
+            </p>
           </div>
         </div>
       </section>
@@ -130,18 +158,25 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {/* Solution features — hover a row to reveal its description */}
       <section className="border-t border-line py-16 sm:py-20">
         <div className={`${container} grid gap-10 md:grid-cols-[1fr_1.3fr]`} data-reveal>
-          <h2 className="font-display text-[clamp(26px,3.6vw,40px)] leading-tight">የመፍትሔው ባህሪያት</h2>
+          <h2 className="font-display text-[clamp(26px,3.6vw,40px)] leading-tight">
+            <T en="Solution features" am="የመፍትሔው ባህሪያት" />
+          </h2>
           <ul className="border-b border-line">
             {c.solutionPoints.map((p) => {
-              const [name, ...rest] = p.split(" — ");
+              const en = p.en.split(" — ");
+              const am = p.am.split(" — ");
               return (
-                <li key={name} className="feat-row border-t border-line py-5">
+                <li key={p.en} className="feat-row border-t border-line py-5">
                   <div className="flex items-start gap-4">
                     <span aria-hidden className="mt-[0.7rem] size-2 shrink-0 bg-accent" />
                     <div>
-                      <p className="feat-name text-xl font-medium text-ink sm:text-2xl">{name}</p>
+                      <p className="feat-name text-xl font-medium text-ink sm:text-2xl">
+                        <T en={en[0]} am={am[0]} />
+                      </p>
                       <div className="feat-desc">
-                        <p className="mt-1.5 max-w-md leading-relaxed text-muted">{rest.join(" — ")}</p>
+                        <p className="mt-1.5 max-w-md leading-relaxed text-muted">
+                          <T en={en.slice(1).join(" — ")} am={am.slice(1).join(" — ")} />
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -156,7 +191,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <section className="border-t border-line py-16 sm:py-20">
         <div className={container}>
           <h2 className="font-display text-[clamp(22px,3vw,32px)] leading-tight" data-reveal>
-            ተጨማሪ ሥራዎች
+            <T en="More work" am="ተጨማሪ ሥራዎች" />
           </h2>
           <ul className="mt-8 grid gap-6 md:grid-cols-2" data-reveal>
             {more.map((m) => {
@@ -167,8 +202,12 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                     <Frame image={mImg} className="aspect-[16/10]" />
                     <div className="mt-3 flex items-center justify-between gap-4">
                       <div>
-                        <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">{m.industry}</p>
-                        <h3 className="font-display text-xl">{m.client}</h3>
+                        <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">
+                          <T en={m.industry.en} am={m.industry.am} />
+                        </p>
+                        <h3 className="font-display text-xl">
+                          <T en={m.client.en} am={m.client.am} />
+                        </h3>
                       </div>
                       <ArrowUpRight className="size-5 text-accent" aria-hidden />
                     </div>
@@ -180,7 +219,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </div>
       </section>
 
-      <CTASection title="እንደዚህ ያለ መፍትሔ ይፈልጋሉ?" />
+      <CTASection title={<T en="Want a solution like this one?" am="እንደዚህ ያለ መፍትሔ ይፈልጋሉ?" />} />
     </main>
   );
 }

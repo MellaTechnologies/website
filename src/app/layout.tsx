@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { site, solutions } from "@/lib/site";
+import { langBootScript } from "@/lib/i18n";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -77,10 +78,10 @@ const jsonLd = {
         availableLanguage: ["English", "Amharic"],
       },
       slogan: "ደንበኛ ቀዳሚ። ከእጅ ወደ ዲጂታል።",
-      knowsAbout: ["ዲጂታል ሽግግር", "ብጁ የንግድ ሶፍትዌር", ...solutions.map((m) => m.name)],
+      knowsAbout: ["ዲጂታል ሽግግር", "ብጁ የንግድ ሶፍትዌር", ...solutions.map((m) => m.name.am)],
       makesOffer: solutions.map((m) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: m.name, description: m.body, areaServed: site.country },
+        itemOffered: { "@type": "Service", name: m.name.am, description: m.body.am, areaServed: site.country },
       })),
     },
     {
@@ -99,8 +100,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="am"
+      data-lang="am"
       className={`${inter.variable} ${caudex.variable} ${notoEthiopic.variable} ${notoSerifEthiopic.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: langBootScript }} />
+      </head>
       <body className="font-sans leading-relaxed">
         <SmoothScroll />
         <Header />

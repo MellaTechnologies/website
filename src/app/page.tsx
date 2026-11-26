@@ -7,6 +7,7 @@ import { WhyMella } from "@/components/why-mella";
 import { MoveButton } from "@/components/move-button";
 import { CTASection, SkyArt, StatStrip, container, Eyebrow, heroSky } from "@/components/ui";
 import { appointmentHref } from "@/lib/site";
+import { T, type Dict } from "@/lib/i18n";
 
 /** Hero slot holding the glass object; the preloader animates its orb into this slot on load. */
 function HeroObject() {
@@ -17,10 +18,34 @@ function HeroObject() {
   );
 }
 
-const pillars = [
-  { num: "01", title: "ዲጂታል ማድረግ", img: "/nat-digitize.png", body: "የዕቃ መዝገብን፣ የደረሰኝ ደብተርንና የጋራ የኤክሴል ፋይልን በሥራ ዘይቤዎ ዙሪያ በተገነቡ ቀላል መሣሪያዎች እንተካለን።" },
-  { num: "02", title: "ማሠልጠን", img: "/nat-train.png", body: "ሠራተኞችዎ እስኪተማመኑ ድረስ በተግባር እናሠለጥናለን — ስለዚህ ማንም ወደ ደብተሩ አይመለስም።" },
-  { num: "03", title: "ድጋፍ", img: "/nat-support.png", body: "የሚደውሉለት ወይም የሚገናኙት አካባቢያዊ ቡድን። እንከታተላለን፣ ችግሮችን በፍጥነት እናስተካክላለን፣ ሥርዓቱንም ከእርስዎ ጋር እናሳድጋለን።" },
+const pillars: { num: string; title: Dict; img: string; body: Dict }[] = [
+  {
+    num: "01",
+    title: { en: "Digitize", am: "ዲጂታል ማድረግ" },
+    img: "/nat-digitize.png",
+    body: {
+      en: "We replace the stock book, receipt pad and shared Excel file with simple tools built around how you work.",
+      am: "የዕቃ መዝገብን፣ የደረሰኝ ደብተርንና የጋራ የኤክሴል ፋይልን በሥራ ዘይቤዎ ዙሪያ በተገነቡ ቀላል መሣሪያዎች እንተካለን።",
+    },
+  },
+  {
+    num: "02",
+    title: { en: "Train", am: "ማሠልጠን" },
+    img: "/nat-train.png",
+    body: {
+      en: "We train your staff hands-on until they're confident — so nobody slips back to the notebook.",
+      am: "ሠራተኞችዎ እስኪተማመኑ ድረስ በተግባር እናሠለጥናለን — ስለዚህ ማንም ወደ ደብተሩ አይመለስም።",
+    },
+  },
+  {
+    num: "03",
+    title: { en: "Support", am: "ድጋፍ" },
+    img: "/nat-support.png",
+    body: {
+      en: "A local team you can call or meet. We check in, fix issues fast, and grow the system with you.",
+      am: "የሚደውሉለት ወይም የሚገናኙት አካባቢያዊ ቡድን። እንከታተላለን፣ ችግሮችን በፍጥነት እናስተካክላለን፣ ሥርዓቱንም ከእርስዎ ጋር እናሳድጋለን።",
+    },
+  },
 ];
 
 export default function Home() {
@@ -41,16 +66,21 @@ export default function Home() {
               style={{ "--d": "0s" } as React.CSSProperties}
               className="font-display text-[clamp(40px,6.4vw,66px)] leading-[1.04]"
             >
-              የሥራ ፍሰትዎን እናሻሽል
+              <T en="Let's optimize your workflow" am="የሥራ ፍሰትዎን እናሻሽል" />
             </h1>
             <p style={{ "--d": "0.12s" } as React.CSSProperties} className="mt-5 max-w-xl text-lg text-muted">
-              የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች እንቀይራለን — ስለዚህ ለደንበኞችዎ የበለጠ ጊዜ ይሰጣሉ።
+              <T
+                en="We turn paper records, notebooks and spreadsheets into simple digital systems — so you spend more time on your customers."
+                am="የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች እንቀይራለን — ስለዚህ ለደንበኞችዎ የበለጠ ጊዜ ይሰጣሉ።"
+              />
             </p>
             <div style={{ "--d": "0.27s" } as React.CSSProperties} className="mt-9 flex flex-wrap gap-3">
               <MoveButton href={appointmentHref} variant="primary" showArrow={false}>
-                <CalendarCheck className="size-[1.1em]" aria-hidden /> ቀጠሮ ይያዙ
+                <CalendarCheck className="size-[1.1em]" aria-hidden /> <T en="Make an appointment" am="ቀጠሮ ይያዙ" />
               </MoveButton>
-              <MoveButton href="/services">ምን ዲጂታል እንደምናደርግ ይመልከቱ</MoveButton>
+              <MoveButton href="/services">
+                <T en="See what we digitize" am="ምን ዲጂታል እንደምናደርግ ይመልከቱ" />
+              </MoveButton>
             </div>
           </div>
 
@@ -63,9 +93,11 @@ export default function Home() {
       {/* What we do — numbered pillars */}
       <section aria-labelledby="pillars-title" className="py-20 sm:py-24">
         <div className={container}>
-          <Eyebrow>እንዴት እንደምንሠራ</Eyebrow>
+          <Eyebrow>
+            <T en="How we work" am="እንዴት እንደምንሠራ" />
+          </Eyebrow>
           <h2 id="pillars-title" className="max-w-2xl font-display text-[clamp(30px,4vw,44px)] leading-tight">
-            በእጅ የሚሠራ ማንኛውም ነገር በዲጂታል በተሻለ ሊሠራ ይችላል
+            <T en="Anything done by hand can be done better digitally" am="በእጅ የሚሠራ ማንኛውም ነገር በዲጂታል በተሻለ ሊሠራ ይችላል" />
           </h2>
           <div className="mt-12 grid items-start gap-5 md:grid-cols-3" data-reveal>
             {pillars.map(({ num, title, img, body }) => (
@@ -84,10 +116,14 @@ export default function Home() {
 
                 <div className="p-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-semibold">{title}</h3>
+                    <h3 className="text-xl font-semibold">
+                      <T en={title.en} am={title.am} />
+                    </h3>
                     <span className="font-display text-2xl text-accent/30">{num}</span>
                   </div>
-                  <p className="mt-2 leading-relaxed text-muted">{body}</p>
+                  <p className="mt-2 leading-relaxed text-muted">
+                    <T en={body.en} am={body.am} />
+                  </p>
                 </div>
               </div>
             ))}

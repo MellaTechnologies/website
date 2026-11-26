@@ -4,12 +4,13 @@ import { Mail, Phone } from "lucide-react";
 import { Logo } from "./logo";
 import { container } from "./ui";
 import { site } from "@/lib/site";
+import { T, type Dict } from "@/lib/i18n";
 
-const nav = [
-  { href: "/about", label: "ስለ እኛ" },
-  { href: "/services", label: "አገልግሎቶች" },
-  // { href: "/portfolio", label: "Portfolio" }, // temporarily hidden — no projects yet
-  { href: "/contact", label: "ያግኙን" },
+const nav: { href: string; label: Dict }[] = [
+  { href: "/about", label: { en: "About", am: "ስለ እኛ" } },
+  { href: "/services", label: { en: "Services", am: "አገልግሎቶች" } },
+  // { href: "/portfolio", label: {...} }, // temporarily hidden — no projects yet
+  { href: "/contact", label: { en: "Contact", am: "ያግኙን" } },
 ];
 
 export function Footer() {
@@ -21,17 +22,22 @@ export function Footer() {
             <Logo markClassName="h-[29px] w-6" wordClassName="text-[22px]" />
           </Link>
           <p className="mt-4 max-w-xs leading-relaxed">
-            የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች የምትቀይር ደንበኛን ቀዳሚ የምታደርግ የሶፍትዌር ኩባንያ።
+            <T
+              en="A customer-first software company turning paper records, notebooks and spreadsheets into simple digital systems."
+              am="የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች የምትቀይር ደንበኛን ቀዳሚ የምታደርግ የሶፍትዌር ኩባንያ።"
+            />
           </p>
         </div>
 
-        <nav aria-label="የግርጌ">
-          <h2 className="mb-3 font-semibold text-ink">ገጾች</h2>
+        <nav aria-label="Footer / የግርጌ">
+          <h2 className="mb-3 font-semibold text-ink">
+            <T en="Pages" am="ገጾች" />
+          </h2>
           <ul className="flex flex-col gap-2">
             {nav.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="hover-accent">
-                  {l.label}
+                  <T en={l.label.en} am={l.label.am} />
                 </Link>
               </li>
             ))}
@@ -39,7 +45,9 @@ export function Footer() {
         </nav>
 
         <div>
-          <h2 className="mb-3 font-semibold text-ink">ያግኙን</h2>
+          <h2 className="mb-3 font-semibold text-ink">
+            <T en="Get in touch" am="ያግኙን" />
+          </h2>
           <address className="flex flex-col gap-2 not-italic">
             {site.phones.map((p) => (
               <a key={p.tel} href={`tel:${p.tel}`} className="inline-flex items-center gap-2 hover-accent">
@@ -55,9 +63,12 @@ export function Footer() {
 
       <div className={`${container} mt-12 flex flex-wrap justify-between gap-2 border-t border-line py-6`}>
         <p>
-          © {new Date().getFullYear()} {site.name}። መብቱ በሕግ የተጠበቀ ነው።
+          © {new Date().getFullYear()} {site.name}
+          <T en=". All rights reserved." am="። መብቱ በሕግ የተጠበቀ ነው።" />
         </p>
-        <p>ደንበኛ ቀዳሚ · ከእጅ ወደ ዲጂታል</p>
+        <p>
+          <T en="Customer first · Manual to digital" am="ደንበኛ ቀዳሚ · ከእጅ ወደ ዲጂታል" />
+        </p>
       </div>
 
       {/* Sunset illustration — a quiet closing moment, fading up into the cream footer. */}

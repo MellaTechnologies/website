@@ -6,13 +6,15 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./logo";
 import { MoveButton } from "./move-button";
+import { LangToggle } from "./lang-toggle";
 import { appointmentHref } from "@/lib/site";
+import { T, type Dict } from "@/lib/i18n";
 
-const links = [
-  { href: "/about", label: "ስለ እኛ" },
-  { href: "/services", label: "አገልግሎቶች" },
-  // { href: "/portfolio", label: "Portfolio" }, // temporarily hidden — no projects yet
-  { href: "/contact", label: "ያግኙን" },
+const links: { href: string; label: Dict }[] = [
+  { href: "/about", label: { en: "About", am: "ስለ እኛ" } },
+  { href: "/services", label: { en: "Services", am: "አገልግሎቶች" } },
+  // { href: "/portfolio", label: {...} }, // temporarily hidden — no projects yet
+  { href: "/contact", label: { en: "Contact", am: "ያግኙን" } },
 ];
 
 export function Header() {
@@ -45,11 +47,12 @@ export function Header() {
                 href={l.href}
                 className={`hover-accent ${isActive(l.href) ? "text-accent" : "text-muted"}`}
               >
-                {l.label}
+                <T en={l.label.en} am={l.label.am} />
               </Link>
             ))}
+            <LangToggle />
             <MoveButton href={appointmentHref} variant="primary" showArrow={false} size="sm">
-              ቀጠሮ ይያዙ
+              <T en="Make an appointment" am="ቀጠሮ ይያዙ" />
             </MoveButton>
           </nav>
 
@@ -74,11 +77,14 @@ export function Header() {
                     onClick={() => setOpen(false)}
                     className={`block rounded-lg px-3 py-2.5 ${isActive(l.href) ? "bg-sand text-accent" : "text-muted hover-accent"}`}
                   >
-                    {l.label}
+                    <T en={l.label.en} am={l.label.am} />
                   </Link>
                 </li>
               ))}
             </ul>
+            <div className="mt-3 flex justify-center">
+              <LangToggle />
+            </div>
             <MoveButton
               href={appointmentHref}
               onClick={() => setOpen(false)}
@@ -86,7 +92,7 @@ export function Header() {
               showArrow={false}
               className="mt-3 w-full"
             >
-              ቀጠሮ ይያዙ
+              <T en="Make an appointment" am="ቀጠሮ ይያዙ" />
             </MoveButton>
           </nav>
         )}
