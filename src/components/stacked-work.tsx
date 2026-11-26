@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { caseStudies } from "@/lib/site";
 import { Eyebrow, container } from "./ui";
 import { MoveButton } from "./move-button";
+import { T } from "@/lib/i18n";
 
 const featured = caseStudies.filter((c) => "image" in c).slice(0, 3) as (typeof caseStudies[number] & {
   image: string;
@@ -50,11 +51,15 @@ export function StackedWork() {
     <section ref={root} className="border-y border-line bg-sand py-20 sm:py-24">
       <div className={`${container} flex flex-wrap items-end justify-between gap-4`}>
         <div>
-          <Eyebrow>Selected work</Eyebrow>
-          <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-tight">Results you can measure</h2>
+          <Eyebrow>
+            <T en="Selected work" am="የተመረጡ ሥራዎች" />
+          </Eyebrow>
+          <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-tight">
+            <T en="Results you can measure" am="ሊለኩ የሚችሉ ውጤቶች" />
+          </h2>
         </div>
         <Link href="/portfolio" className="font-semibold text-accent underline-offset-4 hover-underline">
-          View portfolio <ArrowUpRight className="inline size-4" aria-hidden />
+          <T en="View portfolio" am="ፖርትፎሊዮ ይመልከቱ" /> <ArrowUpRight className="inline size-4" aria-hidden />
         </Link>
       </div>
 
@@ -85,25 +90,37 @@ export function StackedWork() {
                   <div className="flex items-center gap-6">
                     <span className="font-display text-3xl text-onaccent/70">{String(i + 1).padStart(2, "0")}</span>
                     <div>
-                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">Client</p>
-                      <p className="font-semibold">{c.client}</p>
+                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">
+                        <T en="Client" am="ደንበኛ" />
+                      </p>
+                      <p className="font-semibold">
+                        <T en={c.client.en} am={c.client.am} />
+                      </p>
                     </div>
                     <div className="hidden sm:block">
-                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">Expertise</p>
-                      <p className="font-semibold">{c.industry}</p>
+                      <p className="text-[11px] uppercase tracking-[0.14em] text-onaccent/50">
+                        <T en="Expertise" am="ዘርፍ" />
+                      </p>
+                      <p className="font-semibold">
+                        <T en={c.industry.en} am={c.industry.am} />
+                      </p>
                     </div>
                   </div>
                   <MoveButton href="/portfolio" variant="overlay" size="sm" className="text-sm">
-                    View project
+                    <T en="View project" am="ፕሮጀክቱን ይመልከቱ" />
                   </MoveButton>
                 </div>
 
                 <div>
                   <span className="inline-block rounded-full bg-accent/90 px-3 py-1 font-display text-sm text-onaccent">
-                    {c.metric}
+                    <T en={c.metric.en} am={c.metric.am} />
                   </span>
-                  <h3 className="mt-4 font-display text-[clamp(30px,4.6vw,52px)] leading-[1.05]">{c.client}</h3>
-                  <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-onaccent/75">{c.solution}</p>
+                  <h3 className="mt-4 font-display text-[clamp(30px,4.6vw,52px)] leading-[1.05]">
+                    <T en={c.client.en} am={c.client.am} />
+                  </h3>
+                  <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-onaccent/75">
+                    <T en={c.solution.en} am={c.solution.am} />
+                  </p>
                 </div>
               </div>
             </article>

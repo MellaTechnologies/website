@@ -3,28 +3,44 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { T, type Dict } from "@/lib/i18n";
 
 /** Mella's core services. Name shows at rest; the line reveals on hover. */
-const services = [
+const services: { name: Dict; body: Dict }[] = [
   {
-    name: "Software Development",
-    body: "Custom systems built around how your business actually works — not off-the-shelf software you bend to fit.",
+    name: { en: "Software Development", am: "የሶፍትዌር ልማት" },
+    body: {
+      en: "Custom systems built around how your business actually works — not off-the-shelf software you bend to fit.",
+      am: "ንግድዎ በትክክል በሚሠራበት ዘይቤ ዙሪያ የተገነቡ ብጁ ሥርዓቶች — እንዲመጥን የሚያጣምሙት ዝግጁ ሶፍትዌር አይደለም።",
+    },
   },
   {
-    name: "Implementation",
-    body: "We set it up, move your existing records in, and get it running inside your real workflow.",
+    name: { en: "Implementation", am: "ተግባራዊ ማድረግ" },
+    body: {
+      en: "We set it up, move your existing records in, and get it running inside your real workflow.",
+      am: "እናዘጋጀዋለን፣ ያሉዎትን መዝገቦች እናስገባለን፣ በእውነተኛ የሥራ ፍሰትዎ ውስጥም እናስኬደዋለን።",
+    },
   },
   {
-    name: "Maintenance",
-    body: "We keep it running smoothly, fix issues quickly, and adapt the system as your needs change.",
+    name: { en: "Maintenance", am: "ጥገና" },
+    body: {
+      en: "We keep it running smoothly, fix issues quickly, and adapt the system as your needs change.",
+      am: "በተቀላጠፈ ሁኔታ እንዲሠራ እናደርጋለን፣ ችግሮችን በፍጥነት እናስተካክላለን፣ ፍላጎትዎ ሲቀየርም ሥርዓቱን እናስማማለን።",
+    },
   },
   {
-    name: "Training",
-    body: "Hands-on sessions until your team is confident — so nobody slips back to the notebook.",
+    name: { en: "Training", am: "ስልጠና" },
+    body: {
+      en: "Hands-on sessions until your team is confident — so nobody slips back to the notebook.",
+      am: "ቡድንዎ እስኪተማመን ድረስ ተግባራዊ ክፍለ ጊዜዎች — ስለዚህ ማንም ወደ ደብተሩ አይመለስም።",
+    },
   },
   {
-    name: "Technical Support",
-    body: "A local team you can call or visit whenever something needs attention.",
+    name: { en: "Technical Support", am: "ቴክኒካል ድጋፍ" },
+    body: {
+      en: "A local team you can call or visit whenever something needs attention.",
+      am: "አንድ ነገር ትኩረት ባስፈለገው ጊዜ የሚደውሉለት ወይም የሚጎበኙት አካባቢያዊ ቡድን።",
+    },
   },
 ];
 
@@ -55,14 +71,16 @@ export function SolutionsGrid() {
     <ul ref={root} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {services.map((s, i) => (
         <li
-          key={s.name}
+          key={s.name.en}
           data-svc-card
           className="svc-card group relative flex min-h-[20rem] flex-col overflow-hidden rounded-[22px] border border-line p-7"
         >
           <span className="svc-num font-display text-2xl">{String(i + 1).padStart(2, "0")}</span>
-          <p className="svc-desc mt-4 max-w-[26ch] text-[15px] leading-relaxed">{s.body}</p>
+          <p className="svc-desc mt-4 max-w-[26ch] text-[15px] leading-relaxed">
+            <T en={s.body.en} am={s.body.am} />
+          </p>
           <h3 className="svc-name mt-auto font-display text-[clamp(22px,2.4vw,30px)] leading-tight">
-            {s.name}
+            <T en={s.name.en} am={s.name.am} />
           </h3>
         </li>
       ))}

@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { caseStudies } from "@/lib/site";
 import { MoveButton } from "./move-button";
+import { T } from "@/lib/i18n";
 
 /** Portfolio as image cards: name + industry at rest, description + CTA on hover. */
 export function PortfolioGrid() {
@@ -54,14 +55,20 @@ export function PortfolioGrid() {
             <div className="port-shade absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
 
             <div className="absolute inset-x-0 bottom-0 p-6 text-onaccent sm:p-7">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-onaccent/70">{c.industry}</p>
-              <h2 className="mt-1 font-display text-2xl leading-tight sm:text-[26px]">{c.client}</h2>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-onaccent/70">
+                <T en={c.industry.en} am={c.industry.am} />
+              </p>
+              <h2 className="mt-1 font-display text-2xl leading-tight sm:text-[26px]">
+                <T en={c.client.en} am={c.client.am} />
+              </h2>
 
               <div className="port-reveal">
                 <div className="port-reveal-inner">
-                  <p className="mt-2 max-w-md text-[14px] leading-relaxed text-onaccent/85">{c.solution}</p>
+                  <p className="mt-2 max-w-md text-[14px] leading-relaxed text-onaccent/85">
+                    <T en={c.solution.en} am={c.solution.am} />
+                  </p>
                   <MoveButton href={`/portfolio/${c.slug}`} variant="overlay" size="sm" className="mt-3 text-sm">
-                    View project
+                    <T en="View project" am="ፕሮጀክቱን ይመልከቱ" />
                   </MoveButton>
                 </div>
               </div>

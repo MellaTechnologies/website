@@ -2,25 +2,30 @@
 
 import { useRef } from "react";
 import { container } from "./ui";
+import { T } from "@/lib/i18n";
 
-const PARAGRAPH =
-  "We start by listening to how you and your customers work, and design around that — digitizing one process first or everything at once, whatever fits you. We grow with you, and because pricing is set by the size of your business, small businesses pay small-business prices.";
+const PARAGRAPH = {
+  en: "We start by listening to how you and your customers work, and design around that — digitizing one process first or everything at once, whatever fits you. We grow with you, and because pricing is set by the size of your business, small businesses pay small-business prices.",
+  am: "እርስዎና ደንበኞችዎ እንዴት እንደሚሠሩ በማዳመጥ እንጀምራለን፣ በዚያም ዙሪያ እንቀርጻለን — መጀመሪያ አንድ ሂደት ወይም ሁሉንም በአንድ ጊዜ ዲጂታል እናደርጋለን፣ የሚስማማዎትን። ከእርስዎ ጋር እናድጋለን፣ ዋጋውም በንግድዎ መጠን ስለሚወሰን ትናንሽ ንግዶች የትናንሽ ንግድ ዋጋ ይከፍላሉ።",
+};
 
 function Content({ eyebrow, withId }: { eyebrow: string; withId?: boolean }) {
   return (
     <div className={container}>
-      <p className={`mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] ${eyebrow}`}>Why Mella</p>
+      <p className={`mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] ${eyebrow}`}>
+        <T en="Why Mella" am="ለምን Mella" />
+      </p>
       <h2
         {...(withId ? { id: "why-teaser" } : {})}
         className="max-w-3xl font-display text-[clamp(32px,5vw,56px)] leading-[1.04]"
       >
-        A partner that stays after launch
+        <T en="A partner that stays after launch" am="ከጀመረ በኋላ የሚቆይ አጋር" />
       </h2>
       <p
         {...(withId ? { "data-reveal": "" } : {})}
         className="mt-6 max-w-3xl text-[clamp(18px,2.4vw,26px)] leading-relaxed"
       >
-        {PARAGRAPH}
+        <T en={PARAGRAPH.en} am={PARAGRAPH.am} />
       </p>
     </div>
   );
