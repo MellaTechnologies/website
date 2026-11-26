@@ -128,7 +128,7 @@ export function CTASection({
   body = (
     <T
       en="Book a free consultation at your office or ours. We'll look at your paperwork and show you what going digital would look like — no obligation."
-      am="በቢሮዎ ወይም በእኛ ቢሮ ነፃ ምክክር ይያዙ። የወረቀት ሥራዎን እንመለከታለን፣ ዲጂታል መሆን ምን እንደሚመስል እናሳይዎታለን — ምንም ግዴታ የለም።"
+      am="ያነጋግሩን። የወረቀት ሥራዎን እንመለከታለን፣ ዲጂታል መሆን ምን እንደሚመስል እናሳይዎታለን።"
     />
   ),
 }: {

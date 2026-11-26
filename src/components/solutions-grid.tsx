@@ -11,7 +11,7 @@ const services: { name: Dict; body: Dict }[] = [
     name: { en: "Software Development", am: "የሶፍትዌር ልማት" },
     body: {
       en: "Custom systems built around how your business actually works — not off-the-shelf software you bend to fit.",
-      am: "ንግድዎ በትክክል በሚሠራበት ዘይቤ ዙሪያ የተገነቡ ብጁ ሥርዓቶች — እንዲመጥን የሚያጣምሙት ዝግጁ ሶፍትዌር አይደለም።",
+      am: "ንግድዎ በትክክል በሚሠራበት ዘይቤ ዙሪያ የተገነቡ ለሥራዎ የሚመጥኑ ሶፍትዌሮች እንሰራለን።",
     },
   },
   {
@@ -32,14 +32,14 @@ const services: { name: Dict; body: Dict }[] = [
     name: { en: "Training", am: "ስልጠና" },
     body: {
       en: "Hands-on sessions until your team is confident — so nobody slips back to the notebook.",
-      am: "ቡድንዎ እስኪተማመን ድረስ ተግባራዊ ክፍለ ጊዜዎች — ስለዚህ ማንም ወደ ደብተሩ አይመለስም።",
+      am: "ቡድንዎ እስኪተማመን ድረስ እናሰለጥናለን። ማንም ወደ ወረቀት አይመለስም!",
     },
   },
   {
     name: { en: "Technical Support", am: "ቴክኒካል ድጋፍ" },
     body: {
       en: "A local team you can call or visit whenever something needs attention.",
-      am: "አንድ ነገር ትኩረት ባስፈለገው ጊዜ የሚደውሉለት ወይም የሚጎበኙት አካባቢያዊ ቡድን።",
+      am: "እርዳታ ባስፈለጎት ጊዜ የሚደውሉለት እና በአቅራቢያው የሚያገኙት ሃገር በቀል ቡድን።",
     },
   },
 ];

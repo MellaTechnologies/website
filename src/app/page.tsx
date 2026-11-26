@@ -25,7 +25,7 @@ const pillars: { num: string; title: Dict; img: string; body: Dict }[] = [
     img: "/nat-digitize.png",
     body: {
       en: "We replace the stock book, receipt pad and shared Excel file with simple tools built around how you work.",
-      am: "የዕቃ መዝገብን፣ የደረሰኝ ደብተርንና የጋራ የኤክሴል ፋይልን በሥራ ዘይቤዎ ዙሪያ በተገነቡ ቀላል መሣሪያዎች እንተካለን።",
+      am: "የዕቃ መዝገብን፣ የደረሰኝ ደብተርንና የጋራ የኤክሴል ፋይልን በሥራ ዘይቤዎ ዙሪያ በተገነቡ ቀላል ሶፍትዌሮች እንተካለን።",
     },
   },
   {
@@ -34,7 +34,7 @@ const pillars: { num: string; title: Dict; img: string; body: Dict }[] = [
     img: "/nat-train.png",
     body: {
       en: "We train your staff hands-on until they're confident — so nobody slips back to the notebook.",
-      am: "ሠራተኞችዎ እስኪተማመኑ ድረስ በተግባር እናሠለጥናለን — ስለዚህ ማንም ወደ ደብተሩ አይመለስም።",
+      am: "ሠራተኞችዎ እስኪተማመኑ ድረስ በተግባር እናሠለጥናለን — ማንም ወደ ደብተሩ አይመለስም።",
     },
   },
   {
@@ -43,7 +43,7 @@ const pillars: { num: string; title: Dict; img: string; body: Dict }[] = [
     img: "/nat-support.png",
     body: {
       en: "A local team you can call or meet. We check in, fix issues fast, and grow the system with you.",
-      am: "የሚደውሉለት ወይም የሚገናኙት አካባቢያዊ ቡድን። እንከታተላለን፣ ችግሮችን በፍጥነት እናስተካክላለን፣ ሥርዓቱንም ከእርስዎ ጋር እናሳድጋለን።",
+      am: "የሚደውሉለት እና በአቅራቢያዋ የሚገኝ። እንከታተላለን፣ ችግሮችን በፍጥነት እናስተካክላለን፣ ሥርዓቱንም ከእርስዎ ጋር እናሳድጋለን።",
     },
   },
 ];
@@ -71,7 +71,7 @@ export default function Home() {
             <p style={{ "--d": "0.12s" } as React.CSSProperties} className="mt-5 max-w-xl text-lg text-muted">
               <T
                 en="We turn paper records, notebooks and spreadsheets into simple digital systems — so you spend more time on your customers."
-                am="የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች እንቀይራለን — ስለዚህ ለደንበኞችዎ የበለጠ ጊዜ ይሰጣሉ።"
+                am="የወረቀት መዝገቦችን፣ ደብተሮችንና ስፕረድሺቶችን ወደ ቀላል ዲጂታል ሥርዓቶች እንቀይራለን — ስለሆነም ለደንበኞችዎ የበለጠ ጊዜ ይሰጣሉ።"
               />
             </p>
             <div style={{ "--d": "0.27s" } as React.CSSProperties} className="mt-9 flex flex-wrap gap-3">
